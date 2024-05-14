@@ -25,7 +25,9 @@ import core_v_mini_mcu_pkg::*;
 
 task tb_getMemSize;
   output int mem_size;
-  mem_size = core_v_mini_mcu_pkg::MEM_SIZE;
+  output int num_banks;
+  mem_size  = core_v_mini_mcu_pkg::MEM_SIZE;
+  num_banks = core_v_mini_mcu_pkg::NUM_BANKS;
 endtask
 
 task tb_readHEX;
@@ -38,11 +40,11 @@ task tb_loadHEX;
   input string file;
   //whether to use debug to write to memories
   logic [7:0] stimuli[core_v_mini_mcu_pkg::MEM_SIZE];
-  int i, stimuli_base, w_addr, NumBytes;
+  int i, stimuli_counter, bank, NumBytes, NumBanks;
   logic [31:0] addr;
 
   tb_readHEX(file, stimuli);
-  tb_getMemSize(NumBytes);
+  tb_getMemSize(NumBytes, NumBanks);
 
 `ifndef VERILATOR
   for (i = 0; i < NumBytes; i = i + 4) begin
@@ -59,7 +61,8 @@ task tb_loadHEX;
       stimuli[i+3], stimuli[i+2], stimuli[i+1], stimuli[i]
     };
 
-    while (!x_heep_system_i.core_v_mini_mcu_i.debug_subsystem_i.dm_obi_top_i.master_gnt_i)
+    wait (x_heep_system_i.core_v_mini_mcu_i.debug_subsystem_i.dm_obi_top_i.master_gnt_i);
+
     @(posedge x_heep_system_i.core_v_mini_mcu_i.clk_i);
 
     #1;
@@ -78,77 +81,67 @@ task tb_loadHEX;
   release x_heep_system_i.core_v_mini_mcu_i.debug_subsystem_i.dm_obi_top_i.master_wdata_o;
 
 `else
-  for (i = 0; i < 32768; i = i + 4) begin
-    if (((i / 4) & 0) == 0) begin
-      w_addr = ((i / 4) >> 0) % 8192;
-      tb_writetoSram0(w_addr, stimuli[i+3], stimuli[i+2], stimuli[i+1], stimuli[i]);
-    end
+
+  stimuli_counter = 0;
+  for (i = 0; i < NumBytes / NumBanks; i = i + 4) begin
+    tb_writetoSram0(i / 4, stimuli[stimuli_counter+3], stimuli[stimuli_counter+2],
+                    stimuli[stimuli_counter+1], stimuli[stimuli_counter]);
+    stimuli_counter = stimuli_counter + 4;
   end
-  for (i = 32768; i < 65536; i = i + 4) begin
-    if (((i / 4) & 0) == 0) begin
-      w_addr = ((i / 4) >> 0) % 8192;
-      tb_writetoSram1(w_addr, stimuli[i+3], stimuli[i+2], stimuli[i+1], stimuli[i]);
-    end
+  for (i = 0; i < NumBytes / NumBanks; i = i + 4) begin
+    tb_writetoSram1(i / 4, stimuli[stimuli_counter+3], stimuli[stimuli_counter+2],
+                    stimuli[stimuli_counter+1], stimuli[stimuli_counter]);
+    stimuli_counter = stimuli_counter + 4;
   end
-  for (i = 65536; i < 98304; i = i + 4) begin
-    if (((i / 4) & 0) == 0) begin
-      w_addr = ((i / 4) >> 0) % 8192;
-      tb_writetoSram2(w_addr, stimuli[i+3], stimuli[i+2], stimuli[i+1], stimuli[i]);
-    end
+  for (i = 0; i < NumBytes / NumBanks; i = i + 4) begin
+    tb_writetoSram2(i / 4, stimuli[stimuli_counter+3], stimuli[stimuli_counter+2],
+                    stimuli[stimuli_counter+1], stimuli[stimuli_counter]);
+    stimuli_counter = stimuli_counter + 4;
   end
-  for (i = 98304; i < 131072; i = i + 4) begin
-    if (((i / 4) & 0) == 0) begin
-      w_addr = ((i / 4) >> 0) % 8192;
-      tb_writetoSram3(w_addr, stimuli[i+3], stimuli[i+2], stimuli[i+1], stimuli[i]);
-    end
+  for (i = 0; i < NumBytes / NumBanks; i = i + 4) begin
+    tb_writetoSram3(i / 4, stimuli[stimuli_counter+3], stimuli[stimuli_counter+2],
+                    stimuli[stimuli_counter+1], stimuli[stimuli_counter]);
+    stimuli_counter = stimuli_counter + 4;
   end
-  for (i = 131072; i < 163840; i = i + 4) begin
-    if (((i / 4) & 0) == 0) begin
-      w_addr = ((i / 4) >> 0) % 8192;
-      tb_writetoSram4(w_addr, stimuli[i+3], stimuli[i+2], stimuli[i+1], stimuli[i]);
-    end
+  for (i = 0; i < NumBytes / NumBanks; i = i + 4) begin
+    tb_writetoSram4(i / 4, stimuli[stimuli_counter+3], stimuli[stimuli_counter+2],
+                    stimuli[stimuli_counter+1], stimuli[stimuli_counter]);
+    stimuli_counter = stimuli_counter + 4;
   end
-  for (i = 163840; i < 196608; i = i + 4) begin
-    if (((i / 4) & 0) == 0) begin
-      w_addr = ((i / 4) >> 0) % 8192;
-      tb_writetoSram5(w_addr, stimuli[i+3], stimuli[i+2], stimuli[i+1], stimuli[i]);
-    end
+  for (i = 0; i < NumBytes / NumBanks; i = i + 4) begin
+    tb_writetoSram5(i / 4, stimuli[stimuli_counter+3], stimuli[stimuli_counter+2],
+                    stimuli[stimuli_counter+1], stimuli[stimuli_counter]);
+    stimuli_counter = stimuli_counter + 4;
   end
-  for (i = 196608; i < 229376; i = i + 4) begin
-    if (((i / 4) & 0) == 0) begin
-      w_addr = ((i / 4) >> 0) % 8192;
-      tb_writetoSram6(w_addr, stimuli[i+3], stimuli[i+2], stimuli[i+1], stimuli[i]);
-    end
+  for (i = 0; i < NumBytes / NumBanks; i = i + 4) begin
+    tb_writetoSram6(i / 4, stimuli[stimuli_counter+3], stimuli[stimuli_counter+2],
+                    stimuli[stimuli_counter+1], stimuli[stimuli_counter]);
+    stimuli_counter = stimuli_counter + 4;
   end
-  for (i = 229376; i < 262144; i = i + 4) begin
-    if (((i / 4) & 0) == 0) begin
-      w_addr = ((i / 4) >> 0) % 8192;
-      tb_writetoSram7(w_addr, stimuli[i+3], stimuli[i+2], stimuli[i+1], stimuli[i]);
-    end
+  for (i = 0; i < NumBytes / NumBanks; i = i + 4) begin
+    tb_writetoSram7(i / 4, stimuli[stimuli_counter+3], stimuli[stimuli_counter+2],
+                    stimuli[stimuli_counter+1], stimuli[stimuli_counter]);
+    stimuli_counter = stimuli_counter + 4;
   end
-  for (i = 262144; i < 294912; i = i + 4) begin
-    if (((i / 4) & 0) == 0) begin
-      w_addr = ((i / 4) >> 0) % 8192;
-      tb_writetoSram8(w_addr, stimuli[i+3], stimuli[i+2], stimuli[i+1], stimuli[i]);
-    end
+  for (i = 0; i < NumBytes / NumBanks; i = i + 4) begin
+    tb_writetoSram8(i / 4, stimuli[stimuli_counter+3], stimuli[stimuli_counter+2],
+                    stimuli[stimuli_counter+1], stimuli[stimuli_counter]);
+    stimuli_counter = stimuli_counter + 4;
   end
-  for (i = 294912; i < 327680; i = i + 4) begin
-    if (((i / 4) & 0) == 0) begin
-      w_addr = ((i / 4) >> 0) % 8192;
-      tb_writetoSram9(w_addr, stimuli[i+3], stimuli[i+2], stimuli[i+1], stimuli[i]);
-    end
+  for (i = 0; i < NumBytes / NumBanks; i = i + 4) begin
+    tb_writetoSram9(i / 4, stimuli[stimuli_counter+3], stimuli[stimuli_counter+2],
+                    stimuli[stimuli_counter+1], stimuli[stimuli_counter]);
+    stimuli_counter = stimuli_counter + 4;
   end
-  for (i = 327680; i < 360448; i = i + 4) begin
-    if (((i / 4) & 0) == 0) begin
-      w_addr = ((i / 4) >> 0) % 8192;
-      tb_writetoSram10(w_addr, stimuli[i+3], stimuli[i+2], stimuli[i+1], stimuli[i]);
-    end
+  for (i = 0; i < NumBytes / NumBanks; i = i + 4) begin
+    tb_writetoSram10(i / 4, stimuli[stimuli_counter+3], stimuli[stimuli_counter+2],
+                     stimuli[stimuli_counter+1], stimuli[stimuli_counter]);
+    stimuli_counter = stimuli_counter + 4;
   end
-  for (i = 360448; i < 393216; i = i + 4) begin
-    if (((i / 4) & 0) == 0) begin
-      w_addr = ((i / 4) >> 0) % 8192;
-      tb_writetoSram11(w_addr, stimuli[i+3], stimuli[i+2], stimuli[i+1], stimuli[i]);
-    end
+  for (i = 0; i < NumBytes / NumBanks; i = i + 4) begin
+    tb_writetoSram11(i / 4, stimuli[stimuli_counter+3], stimuli[stimuli_counter+2],
+                     stimuli[stimuli_counter+1], stimuli[stimuli_counter]);
+    stimuli_counter = stimuli_counter + 4;
   end
 
 `endif
@@ -156,216 +149,216 @@ task tb_loadHEX;
 endtask
 
 task tb_writetoSram0;
-  input int addr;
+  input integer addr;
   input [7:0] val3;
   input [7:0] val2;
   input [7:0] val1;
   input [7:0] val0;
 `ifdef VCS
-  force x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram0_i.tc_ram_i.sram[addr] = {
+  force x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[0].ram_i.tc_ram_i.sram[addr] = {
     val3, val2, val1, val0
   };
-  release x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram0_i.tc_ram_i.sram[addr];
+  release x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[0].ram_i.tc_ram_i.sram[addr];
 `else
-  x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram0_i.tc_ram_i.sram[addr] = {
+  x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[0].ram_i.tc_ram_i.sram[addr] = {
     val3, val2, val1, val0
   };
 `endif
 endtask
 
 task tb_writetoSram1;
-  input int addr;
+  input integer addr;
   input [7:0] val3;
   input [7:0] val2;
   input [7:0] val1;
   input [7:0] val0;
 `ifdef VCS
-  force x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram1_i.tc_ram_i.sram[addr] = {
+  force x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[1].ram_i.tc_ram_i.sram[addr] = {
     val3, val2, val1, val0
   };
-  release x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram1_i.tc_ram_i.sram[addr];
+  release x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[1].ram_i.tc_ram_i.sram[addr];
 `else
-  x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram1_i.tc_ram_i.sram[addr] = {
+  x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[1].ram_i.tc_ram_i.sram[addr] = {
     val3, val2, val1, val0
   };
 `endif
 endtask
 
 task tb_writetoSram2;
-  input int addr;
+  input integer addr;
   input [7:0] val3;
   input [7:0] val2;
   input [7:0] val1;
   input [7:0] val0;
 `ifdef VCS
-  force x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram2_i.tc_ram_i.sram[addr] = {
+  force x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[2].ram_i.tc_ram_i.sram[addr] = {
     val3, val2, val1, val0
   };
-  release x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram2_i.tc_ram_i.sram[addr];
+  release x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[2].ram_i.tc_ram_i.sram[addr];
 `else
-  x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram2_i.tc_ram_i.sram[addr] = {
+  x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[2].ram_i.tc_ram_i.sram[addr] = {
     val3, val2, val1, val0
   };
 `endif
 endtask
 
 task tb_writetoSram3;
-  input int addr;
+  input integer addr;
   input [7:0] val3;
   input [7:0] val2;
   input [7:0] val1;
   input [7:0] val0;
 `ifdef VCS
-  force x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram3_i.tc_ram_i.sram[addr] = {
+  force x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[3].ram_i.tc_ram_i.sram[addr] = {
     val3, val2, val1, val0
   };
-  release x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram3_i.tc_ram_i.sram[addr];
+  release x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[3].ram_i.tc_ram_i.sram[addr];
 `else
-  x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram3_i.tc_ram_i.sram[addr] = {
+  x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[3].ram_i.tc_ram_i.sram[addr] = {
     val3, val2, val1, val0
   };
 `endif
 endtask
 
 task tb_writetoSram4;
-  input int addr;
+  input integer addr;
   input [7:0] val3;
   input [7:0] val2;
   input [7:0] val1;
   input [7:0] val0;
 `ifdef VCS
-  force x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram4_i.tc_ram_i.sram[addr] = {
+  force x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[4].ram_i.tc_ram_i.sram[addr] = {
     val3, val2, val1, val0
   };
-  release x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram4_i.tc_ram_i.sram[addr];
+  release x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[4].ram_i.tc_ram_i.sram[addr];
 `else
-  x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram4_i.tc_ram_i.sram[addr] = {
+  x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[4].ram_i.tc_ram_i.sram[addr] = {
     val3, val2, val1, val0
   };
 `endif
 endtask
 
 task tb_writetoSram5;
-  input int addr;
+  input integer addr;
   input [7:0] val3;
   input [7:0] val2;
   input [7:0] val1;
   input [7:0] val0;
 `ifdef VCS
-  force x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram5_i.tc_ram_i.sram[addr] = {
+  force x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[5].ram_i.tc_ram_i.sram[addr] = {
     val3, val2, val1, val0
   };
-  release x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram5_i.tc_ram_i.sram[addr];
+  release x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[5].ram_i.tc_ram_i.sram[addr];
 `else
-  x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram5_i.tc_ram_i.sram[addr] = {
+  x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[5].ram_i.tc_ram_i.sram[addr] = {
     val3, val2, val1, val0
   };
 `endif
 endtask
 
 task tb_writetoSram6;
-  input int addr;
+  input integer addr;
   input [7:0] val3;
   input [7:0] val2;
   input [7:0] val1;
   input [7:0] val0;
 `ifdef VCS
-  force x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram6_i.tc_ram_i.sram[addr] = {
+  force x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[6].ram_i.tc_ram_i.sram[addr] = {
     val3, val2, val1, val0
   };
-  release x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram6_i.tc_ram_i.sram[addr];
+  release x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[6].ram_i.tc_ram_i.sram[addr];
 `else
-  x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram6_i.tc_ram_i.sram[addr] = {
+  x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[6].ram_i.tc_ram_i.sram[addr] = {
     val3, val2, val1, val0
   };
 `endif
 endtask
 
 task tb_writetoSram7;
-  input int addr;
+  input integer addr;
   input [7:0] val3;
   input [7:0] val2;
   input [7:0] val1;
   input [7:0] val0;
 `ifdef VCS
-  force x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram7_i.tc_ram_i.sram[addr] = {
+  force x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[7].ram_i.tc_ram_i.sram[addr] = {
     val3, val2, val1, val0
   };
-  release x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram7_i.tc_ram_i.sram[addr];
+  release x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[7].ram_i.tc_ram_i.sram[addr];
 `else
-  x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram7_i.tc_ram_i.sram[addr] = {
+  x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[7].ram_i.tc_ram_i.sram[addr] = {
     val3, val2, val1, val0
   };
 `endif
 endtask
 
 task tb_writetoSram8;
-  input int addr;
+  input integer addr;
   input [7:0] val3;
   input [7:0] val2;
   input [7:0] val1;
   input [7:0] val0;
 `ifdef VCS
-  force x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram8_i.tc_ram_i.sram[addr] = {
+  force x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[8].ram_i.tc_ram_i.sram[addr] = {
     val3, val2, val1, val0
   };
-  release x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram8_i.tc_ram_i.sram[addr];
+  release x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[8].ram_i.tc_ram_i.sram[addr];
 `else
-  x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram8_i.tc_ram_i.sram[addr] = {
+  x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[8].ram_i.tc_ram_i.sram[addr] = {
     val3, val2, val1, val0
   };
 `endif
 endtask
 
 task tb_writetoSram9;
-  input int addr;
+  input integer addr;
   input [7:0] val3;
   input [7:0] val2;
   input [7:0] val1;
   input [7:0] val0;
 `ifdef VCS
-  force x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram9_i.tc_ram_i.sram[addr] = {
+  force x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[9].ram_i.tc_ram_i.sram[addr] = {
     val3, val2, val1, val0
   };
-  release x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram9_i.tc_ram_i.sram[addr];
+  release x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[9].ram_i.tc_ram_i.sram[addr];
 `else
-  x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram9_i.tc_ram_i.sram[addr] = {
+  x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[9].ram_i.tc_ram_i.sram[addr] = {
     val3, val2, val1, val0
   };
 `endif
 endtask
 
 task tb_writetoSram10;
-  input int addr;
+  input integer addr;
   input [7:0] val3;
   input [7:0] val2;
   input [7:0] val1;
   input [7:0] val0;
 `ifdef VCS
-  force x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram10_i.tc_ram_i.sram[addr] = {
+  force x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[10].ram_i.tc_ram_i.sram[addr] = {
     val3, val2, val1, val0
   };
-  release x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram10_i.tc_ram_i.sram[addr];
+  release x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[10].ram_i.tc_ram_i.sram[addr];
 `else
-  x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram10_i.tc_ram_i.sram[addr] = {
+  x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[10].ram_i.tc_ram_i.sram[addr] = {
     val3, val2, val1, val0
   };
 `endif
 endtask
 
 task tb_writetoSram11;
-  input int addr;
+  input integer addr;
   input [7:0] val3;
   input [7:0] val2;
   input [7:0] val1;
   input [7:0] val0;
 `ifdef VCS
-  force x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram11_i.tc_ram_i.sram[addr] = {
+  force x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[11].ram_i.tc_ram_i.sram[addr] = {
     val3, val2, val1, val0
   };
-  release x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram11_i.tc_ram_i.sram[addr];
+  release x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[11].ram_i.tc_ram_i.sram[addr];
 `else
-  x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.ram11_i.tc_ram_i.sram[addr] = {
+  x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[11].ram_i.tc_ram_i.sram[addr] = {
     val3, val2, val1, val0
   };
 `endif

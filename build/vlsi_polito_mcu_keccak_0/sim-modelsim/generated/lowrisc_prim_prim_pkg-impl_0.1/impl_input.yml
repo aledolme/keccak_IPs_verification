@@ -13,44 +13,6 @@ cores:
     files:
     - sv2v_in_place.py
     used: false
-  esl_epfl:ip:cv32e40px:0:
-    capi_version: 2
-    core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px.core
-    core_root: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor
-    files:
-    - esl_epfl_cv32e40px/rtl/include/cv32e40px_apu_core_pkg.sv
-    - esl_epfl_cv32e40px/rtl/include/cv32e40px_fpu_pkg.sv
-    - esl_epfl_cv32e40px/rtl/include/cv32e40px_pkg.sv
-    - esl_epfl_cv32e40px/rtl/include/cv32e40px_core_v_xif_pkg.sv
-    - esl_epfl_cv32e40px/rtl/cv32e40px_alu.sv
-    - esl_epfl_cv32e40px/rtl/cv32e40px_alu_div.sv
-    - esl_epfl_cv32e40px/rtl/cv32e40px_ff_one.sv
-    - esl_epfl_cv32e40px/rtl/cv32e40px_popcnt.sv
-    - esl_epfl_cv32e40px/rtl/cv32e40px_compressed_decoder.sv
-    - esl_epfl_cv32e40px/rtl/cv32e40px_controller.sv
-    - esl_epfl_cv32e40px/rtl/cv32e40px_cs_registers.sv
-    - esl_epfl_cv32e40px/rtl/cv32e40px_decoder.sv
-    - esl_epfl_cv32e40px/rtl/cv32e40px_int_controller.sv
-    - esl_epfl_cv32e40px/rtl/cv32e40px_ex_stage.sv
-    - esl_epfl_cv32e40px/rtl/cv32e40px_hwloop_regs.sv
-    - esl_epfl_cv32e40px/rtl/cv32e40px_id_stage.sv
-    - esl_epfl_cv32e40px/rtl/cv32e40px_if_stage.sv
-    - esl_epfl_cv32e40px/rtl/cv32e40px_load_store_unit.sv
-    - esl_epfl_cv32e40px/rtl/cv32e40px_mult.sv
-    - esl_epfl_cv32e40px/rtl/cv32e40px_prefetch_buffer.sv
-    - esl_epfl_cv32e40px/rtl/cv32e40px_prefetch_controller.sv
-    - esl_epfl_cv32e40px/rtl/cv32e40px_obi_interface.sv
-    - esl_epfl_cv32e40px/rtl/cv32e40px_aligner.sv
-    - esl_epfl_cv32e40px/rtl/cv32e40px_sleep_unit.sv
-    - esl_epfl_cv32e40px/rtl/cv32e40px_core.sv
-    - esl_epfl_cv32e40px/rtl/cv32e40px_apu_disp.sv
-    - esl_epfl_cv32e40px/rtl/cv32e40px_x_disp.sv
-    - esl_epfl_cv32e40px/rtl/cv32e40px_fifo.sv
-    - esl_epfl_cv32e40px/rtl/cv32e40px_fp_wrapper.sv
-    - esl_epfl_cv32e40px/rtl/cv32e40px_top.sv
-    - esl_epfl_cv32e40px/rtl/cv32e40px_register_file_ff.sv
-    - esl_epfl_cv32e40px/bhv/cv32e40px_sim_clock_gate.sv
-    used: true
   example:ip:ams:0:
     capi_version: 2
     core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/ip_examples/ams/ams.core
@@ -75,28 +37,12 @@ cores:
     files:
     - rtl/i2s_microphone.sv
     used: false
-  example:ip:iffifo:0:
-    capi_version: 2
-    core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/ip_examples/iffifo/iffifo.core
-    core_root: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/ip_examples/iffifo
-    files:
-    - rtl/iffifo_reg_pkg.sv
-    - rtl/iffifo_reg_top.sv
-    - rtl/iffifo.sv
-    used: false
   example:ip:pdm2pcm_dummy:0:
     capi_version: 2
     core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/ip_examples/pdm2pcm_dummy/pdm2pcm_dummy.core
     core_root: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/ip_examples/pdm2pcm_dummy
     files:
     - rtl/pdm2pcm_dummy.sv
-    used: false
-  example:ip:simple_accelerator:0:
-    capi_version: 2
-    core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/ip_examples/simple_accelerator/simple_accelerator.core
-    core_root: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/ip_examples/simple_accelerator
-    files:
-    - simple_accelerator.sv
     used: false
   example:ip:slow_memory:0:
     capi_version: 2
@@ -112,36 +58,6 @@ cores:
     files:
     - rtl/top_pkg.sv
     used: true
-  lowrisc:cve2:cve2_icache:0.1:
-    capi_version: 2
-    core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/cve2_icache.core
-    core_root: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20
-    files:
-    - rtl/cve2_icache.sv
-    used: false
-  lowrisc:cve2:cve2_multdiv:0.1:
-    capi_version: 2
-    core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/cve2_multdiv.core
-    core_root: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20
-    files:
-    - rtl/cve2_multdiv_fast.sv
-    - rtl/cve2_multdiv_slow.sv
-    used: false
-  lowrisc:cve2:cve2_top_tracing:0.1:
-    capi_version: 2
-    core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/cve2_top_tracing.core
-    core_root: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20
-    files:
-    - rtl/cve2_top_tracing.sv
-    used: false
-  lowrisc:cve2:cve2_tracer:0.1:
-    capi_version: 2
-    core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/cve2_tracer.core
-    core_root: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20
-    files:
-    - rtl/cve2_tracer_pkg.sv
-    - rtl/cve2_tracer.sv
-    used: false
   lowrisc:dv:crypto_dpi_present:0.1:
     capi_version: 2
     core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/dv/prim_present/crypto_dpi_present/crypto_dpi_present.core
@@ -162,37 +78,6 @@ cores:
     - prince_ref.h
     - crypto_dpi_prince.c
     - crypto_dpi_prince_pkg.sv
-    used: false
-  lowrisc:dv:dv_fcov_macros:0:
-    capi_version: 2
-    core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/vendor/lowrisc_ip/dv/sv/dv_utils/dv_fcov_macros.core
-    core_root: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/vendor/lowrisc_ip/dv/sv/dv_utils
-    files:
-    - dv_fcov_macros.svh
-    used: true
-  lowrisc:dv:dv_macros:0:
-    capi_version: 2
-    core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/vendor/lowrisc_ip/dv/sv/dv_utils/dv_macros.core
-    core_root: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/vendor/lowrisc_ip/dv/sv/dv_utils
-    files:
-    - dv_macros.svh
-    used: false
-  lowrisc:dv:dv_test_status:0:
-    capi_version: 2
-    core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/vendor/lowrisc_ip/dv/sv/dv_utils/dv_test_status.core
-    core_root: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/vendor/lowrisc_ip/dv/sv/dv_utils
-    files:
-    - dv_test_status_pkg.sv
-    used: false
-  lowrisc:dv:dv_utils:0:
-    capi_version: 2
-    core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/vendor/lowrisc_ip/dv/sv/dv_utils/dv_utils.core
-    core_root: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/vendor/lowrisc_ip/dv/sv/dv_utils
-    files:
-    - dv_utils_pkg.sv
-    - dv_report_catcher.sv
-    - dv_report_server.sv
-    - dv_vif_wrap.sv
     used: false
   lowrisc:dv:prim_lfsr_sim:0.1:
     capi_version: 2
@@ -602,6 +487,13 @@ cores:
     - tb/rv_plic_bind_fpv.sv
     - tb/rv_plic_generic_fpv.sv
     used: false
+  lowrisc:ibex:ibex_pkg:0.1:
+    capi_version: 2
+    core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/ibex_pkg.core
+    core_root: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20
+    files:
+    - rtl/ibex_pkg.sv
+    used: true
   lowrisc:ip:i2c:0.1:
     capi_version: 2
     core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/i2c/i2c.core
@@ -896,7 +788,7 @@ cores:
     core_root: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim
     files:
     - rtl/prim_lfsr.sv
-    used: true
+    used: false
   lowrisc:prim:msb_extend:0:
     capi_version: 2
     core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/prim_msb_extend.core
@@ -948,28 +840,28 @@ cores:
     core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/prim_ram_1p.core
     core_root: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim
     files: []
-    used: true
+    used: false
   lowrisc:prim:ram_1p_adv:0.1:
     capi_version: 2
     core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/prim_ram_1p_adv.core
     core_root: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim
     files:
     - rtl/prim_ram_1p_adv.sv
-    used: true
+    used: false
   lowrisc:prim:ram_1p_pkg:0:
     capi_version: 2
     core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/prim_ram_1p_pkg.core
     core_root: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim
     files:
     - rtl/prim_ram_1p_pkg.sv
-    used: true
+    used: false
   lowrisc:prim:ram_1p_scr:0.1:
     capi_version: 2
     core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/prim_ram_1p_scr.core
     core_root: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim
     files:
     - rtl/prim_ram_1p_scr.sv
-    used: true
+    used: false
   lowrisc:prim:ram_2p:0:
     capi_version: 2
     core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/prim_ram_2p.core
@@ -1261,6 +1153,7 @@ cores:
     - openhwgroup_cv32e40p/rtl/include/cv32e40p_apu_core_pkg.sv
     - openhwgroup_cv32e40p/rtl/include/cv32e40p_fpu_pkg.sv
     - openhwgroup_cv32e40p/rtl/include/cv32e40p_pkg.sv
+    - openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_pkg.sv
     - openhwgroup_cv32e40p/rtl/cv32e40p_alu.sv
     - openhwgroup_cv32e40p/rtl/cv32e40p_alu_div.sv
     - openhwgroup_cv32e40p/rtl/cv32e40p_ff_one.sv
@@ -1287,6 +1180,25 @@ cores:
     - openhwgroup_cv32e40p/rtl/cv32e40p_fp_wrapper.sv
     - openhwgroup_cv32e40p/rtl/cv32e40p_top.sv
     - openhwgroup_cv32e40p/rtl/cv32e40p_register_file_ff.sv
+    - openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_cast_multi.sv
+    - openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_classifier.sv
+    - openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_divsqrt_multi.sv
+    - openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_fma_multi.sv
+    - openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_fma.sv
+    - openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_noncomp.sv
+    - openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_opgroup_block.sv
+    - openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_opgroup_fmt_slice.sv
+    - openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_opgroup_multifmt_slice.sv
+    - openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_rounding.sv
+    - openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_top.sv
+    - openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpu_div_sqrt_mvp/hdl/defs_div_sqrt_mvp.sv
+    - openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpu_div_sqrt_mvp/hdl/control_mvp.sv
+    - openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpu_div_sqrt_mvp/hdl/div_sqrt_mvp_wrapper.sv
+    - openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpu_div_sqrt_mvp/hdl/div_sqrt_top_mvp.sv
+    - openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpu_div_sqrt_mvp/hdl/iteration_div_sqrt_mvp.sv
+    - openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpu_div_sqrt_mvp/hdl/norm_div_sqrt_mvp.sv
+    - openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpu_div_sqrt_mvp/hdl/nrbd_nrsc_mvp.sv
+    - openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpu_div_sqrt_mvp/hdl/preprocess_mvp.sv
     - openhwgroup_cv32e40p/bhv/cv32e40p_sim_clock_gate.sv
     used: true
   openhwgroup.org:ip:cv32e40x:0:
@@ -1341,6 +1253,35 @@ cores:
     - openhwgroup_cv32e40x/rtl/cv32e40x_wpt.sv
     - openhwgroup_cv32e40x/bhv/cv32e40x_sim_clock_gate.sv
     used: true
+  openhwgroup.org:ip:cve2:0:
+    capi_version: 2
+    core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/cve2.core
+    core_root: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20
+    files:
+    - rtl/ibex_alu.sv
+    - rtl/ibex_branch_predict.sv
+    - rtl/ibex_compressed_decoder.sv
+    - rtl/ibex_controller.sv
+    - rtl/ibex_cs_registers.sv
+    - rtl/ibex_csr.sv
+    - rtl/ibex_counter.sv
+    - rtl/ibex_decoder.sv
+    - rtl/ibex_ex_block.sv
+    - rtl/ibex_fetch_fifo.sv
+    - rtl/ibex_id_stage.sv
+    - rtl/ibex_if_stage.sv
+    - rtl/ibex_load_store_unit.sv
+    - rtl/ibex_multdiv_fast.sv
+    - rtl/ibex_multdiv_slow.sv
+    - rtl/ibex_prefetch_buffer.sv
+    - rtl/ibex_pmp.sv
+    - rtl/ibex_wb_stage.sv
+    - rtl/ibex_dummy_instr.sv
+    - rtl/ibex_core.sv
+    - rtl/cve2_sleep_unit.sv
+    - rtl/ibex_pmp_reset_default.svh
+    - bhv/cve2_sim_clock_gate.sv
+    used: true
   openhwgroup.org:ip:soc_ctrl:0:
     capi_version: 2
     core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/ip/soc_ctrl/openhwgroup_soc_ctrl.core
@@ -1355,24 +1296,6 @@ cores:
     core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/waiver/verilator_waiver.core
     core_root: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/waiver
     files: []
-    used: false
-  openhwgroup.org:systems:core-v-mini-mcu-fpga:0:
-    capi_version: 2
-    core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/core-v-mini-mcu-fpga.core
-    core_root: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep
-    files:
-    - hw/fpga/sram_wrapper.sv
-    - hw/fpga/scripts/generate_sram.tcl
-    - hw/fpga/prim_xilinx_clk.sv
-    - hw/fpga/cv32e40p_xilinx_clock_gate.sv
-    - hw/fpga/cv32e40x_xilinx_clock_gate.sv
-    - hw/fpga/cve2_xilinx_clock_gate.sv
-    - hw/fpga/cv32e40px_xilinx_clock_gate.sv
-    - hw/fpga/pad_cell_input_xilinx.sv
-    - hw/fpga/pad_cell_output_xilinx.sv
-    - hw/fpga/pad_cell_inout_xilinx.sv
-    - hw/fpga/pad_cell_bypass_input_xilinx.sv
-    - hw/fpga/pad_cell_bypass_output_xilinx.sv
     used: false
   openhwgroup.org:systems:core-v-mini-mcu:0:
     capi_version: 2
@@ -1396,48 +1319,6 @@ cores:
     - hw/simulation/pad_cell_inout.sv
     - hw/simulation/pad_cell_input.sv
     - hw/simulation/pad_cell_output.sv
-    used: true
-  openhwgroup:cve2:cve2_core:0.1:
-    capi_version: 2
-    core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/cve2_core.core
-    core_root: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20
-    files:
-    - rtl/cve2_alu.sv
-    - rtl/cve2_branch_predict.sv
-    - rtl/cve2_compressed_decoder.sv
-    - rtl/cve2_controller.sv
-    - rtl/cve2_cs_registers.sv
-    - rtl/cve2_csr.sv
-    - rtl/cve2_counter.sv
-    - rtl/cve2_decoder.sv
-    - rtl/cve2_ex_block.sv
-    - rtl/cve2_fetch_fifo.sv
-    - rtl/cve2_id_stage.sv
-    - rtl/cve2_if_stage.sv
-    - rtl/cve2_load_store_unit.sv
-    - rtl/cve2_multdiv_fast.sv
-    - rtl/cve2_multdiv_slow.sv
-    - rtl/cve2_prefetch_buffer.sv
-    - rtl/cve2_pmp.sv
-    - rtl/cve2_wb.sv
-    - rtl/cve2_core.sv
-    - rtl/cve2_pmp_reset_default.svh
-    used: true
-  openhwgroup:cve2:cve2_pkg:0.1:
-    capi_version: 2
-    core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/cve2_pkg.core
-    core_root: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20
-    files:
-    - rtl/cve2_pkg.sv
-    used: true
-  openhwgroup:cve2:cve2_top:0.1:
-    capi_version: 2
-    core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/cve2_top.core
-    core_root: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20
-    files:
-    - rtl/cve2_register_file_ff.sv
-    - rtl/cve2_top.sv
-    - bhv/cve2_sim_clock_gate.sv
     used: true
   pulp-platform.org::axi:0.29.1:
     capi_version: 2
@@ -1596,36 +1477,6 @@ cores:
     - src/edge_propagator.sv
     - src/edge_propagator_rx.sv
     used: true
-  pulp-platform.org::fpnew:0:
-    capi_version: 2
-    core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew.core
-    core_root: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor
-    files:
-    - pulp_platform_fpnew/src/fpnew_pkg.sv
-    - pulp_platform_fpnew/src/fpnew_cast_multi.sv
-    - pulp_platform_fpnew/src/fpnew_classifier.sv
-    - pulp_platform_fpnew/src/fpnew_divsqrt_multi.sv
-    - pulp_platform_fpnew/src/fpnew_fma_multi.sv
-    - pulp_platform_fpnew/src/fpnew_noncomp.sv
-    - pulp_platform_fpnew/src/fpnew_opgroup_block.sv
-    - pulp_platform_fpnew/src/fpnew_opgroup_fmt_slice.sv
-    - pulp_platform_fpnew/src/fpnew_opgroup_multifmt_slice.sv
-    - pulp_platform_fpnew/src/fpnew_rounding.sv
-    - pulp_platform_fpnew/src/fpnew_top.sv
-    - pulp_platform_fpnew/src/fpnew_divsqrt_th_32.sv
-    - pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/clk/rtl/gated_clk_cell.v
-    - pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_ctrl.v
-    - pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_ff1.v
-    - pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_pack_single.v
-    - pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_prepare.v
-    - pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_round_single.v
-    - pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_special.v
-    - pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_srt_single.v
-    - pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_top.v
-    - pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fpu/rtl/pa_fpu_dp.v
-    - pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fpu/rtl/pa_fpu_frbus.v
-    - pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fpu/rtl/pa_fpu_src_type.v
-    used: true
   pulp-platform.org::pulpissimo_remote_bitbang:0:
     capi_version: 2
     core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_pulpissimo_remote_bitbang.core
@@ -1690,23 +1541,6 @@ cores:
     - pulp_platform_tech_cells_generic/src/deprecated/cluster_clk_cells.sv
     - pulp_platform_tech_cells_generic/src/deprecated/pulp_clk_cells.sv
     used: true
-  pulp-platform.org:ip:fpu_ss:0:
-    capi_version: 2
-    core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpu_ss.core
-    core_root: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor
-    files:
-    - pulp_platform_fpu_ss/src/fpu_ss_pkg.sv
-    - pulp_platform_fpu_ss/src/fpu_ss_instr_pkg.sv
-    - pulp_platform_fpu_ss/src/fpu_ss_prd_f_pkg.sv
-    - pulp_platform_fpu_ss/src/fpu_ss_prd_zfinx_pkg.sv
-    - pulp_platform_fpu_ss/src/fpu_ss_compressed_predecoder.sv
-    - pulp_platform_fpu_ss/src/fpu_ss_controller.sv
-    - pulp_platform_fpu_ss/src/fpu_ss_csr.sv
-    - pulp_platform_fpu_ss/src/fpu_ss_decoder.sv
-    - pulp_platform_fpu_ss/src/fpu_ss_predecoder.sv
-    - pulp_platform_fpu_ss/src/fpu_ss_regfile.sv
-    - pulp_platform_fpu_ss/src/fpu_ss.sv
-    used: false
   pulp-platform.org:ip:gpio:0:
     capi_version: 2
     core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_gpio.core
@@ -1769,13 +1603,6 @@ cores:
     - reg_pkg.sv
     - core_v_mini_mcu_pkg.sv
     used: true
-  x-heep::tb-fpu-utils:0:
-    capi_version: 2
-    core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/x-heep-tb-fpu-utils.core
-    core_root: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep
-    files:
-    - hw/ip_examples/fpu_ss_wrapper/fpu_ss_wrapper.sv
-    used: false
   x-heep::tb-utils:0:
     capi_version: 2
     core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/x-heep-tb-utils.core
@@ -1825,13 +1652,6 @@ cores:
     - rtl/i2s_rx_channel.sv
     - rtl/i2s_ws_gen.sv
     - rtl/event_counter.sv
-    used: true
-  x-heep:ip:obi_fifo:0:
-    capi_version: 2
-    core_filepath: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/ip/obi_fifo/obi_fifo.core
-    core_root: /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/ip/obi_fifo
-    files:
-    - obi_fifo.sv
     used: true
   x-heep:ip:pad_control:0:
     capi_version: 2

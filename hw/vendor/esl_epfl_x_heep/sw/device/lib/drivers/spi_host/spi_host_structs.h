@@ -69,8 +69,6 @@ typedef struct {
 
   uint32_t CONFIGOPTS0;                           /*!< Configuration options register.     Contains options for controlling each peripheral. One register per    cs_n line*/
 
-  uint32_t CONFIGOPTS1;                           /*!< Configuration options register.     Contains options for controlling each peripheral. One register per    cs_n line*/
-
   uint32_t CSID;                                  /*!< Chip-Select ID     Controls which device to target with the next command.  This register    is passed to the core whenever !!COMMAND is written.  The core then    asserts cio_csb_o[!!CSID] during the execution of the command.*/
 
   uint32_t COMMAND;                               /*!< Command Register     Parameters specific to each command segment.  Unlike the !!CONFIGOPTS multi-register,    there is only one command register for controlling all attached SPI devices*/

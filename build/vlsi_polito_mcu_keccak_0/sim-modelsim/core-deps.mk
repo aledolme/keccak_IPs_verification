@@ -159,8 +159,6 @@ fusesoc-deps := \
   /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/ip/pdm2pcm/rtl/pdm_core.sv \
   /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/ip/pdm2pcm/rtl/pdm2pcm.sv \
   /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/ip/pdm2pcm/rtl/pdm2pcm_window.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/ip/obi_fifo/obi_fifo.core \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/ip/obi_fifo/obi_fifo.sv \
   /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/ip/fast_intr_ctrl/fast_intr_ctrl.core \
   /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/ip/fast_intr_ctrl/rtl/fast_intr_ctrl_reg_pkg.sv \
   /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/ip/fast_intr_ctrl/rtl/fast_intr_ctrl_reg_top.sv \
@@ -390,108 +388,32 @@ fusesoc-deps := \
   /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_gpio/src/gpio_reg_top.sv \
   /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_gpio/src/gpio.sv \
   /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_gpio/src/gpio_input_stage.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px.core \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/include/cv32e40px_apu_core_pkg.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/include/cv32e40px_fpu_pkg.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/include/cv32e40px_pkg.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/include/cv32e40px_core_v_xif_pkg.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_alu.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_alu_div.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_ff_one.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_popcnt.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_compressed_decoder.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_controller.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_cs_registers.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_decoder.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_int_controller.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_ex_stage.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_hwloop_regs.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_id_stage.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_if_stage.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_load_store_unit.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_mult.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_prefetch_buffer.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_prefetch_controller.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_obi_interface.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_aligner.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_sleep_unit.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_core.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_apu_disp.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_x_disp.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_fifo.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_fp_wrapper.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_top.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_register_file_ff.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/bhv/cv32e40px_sim_clock_gate.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew.core \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/src/fpnew_pkg.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/src/fpnew_cast_multi.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/src/fpnew_classifier.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/src/fpnew_divsqrt_multi.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/src/fpnew_fma_multi.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/src/fpnew_noncomp.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/src/fpnew_opgroup_block.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/src/fpnew_opgroup_fmt_slice.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/src/fpnew_opgroup_multifmt_slice.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/src/fpnew_rounding.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/src/fpnew_top.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/src/fpnew_divsqrt_th_32.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/clk/rtl/gated_clk_cell.v \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_ctrl.v \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_ff1.v \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_pack_single.v \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_prepare.v \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_round_single.v \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_special.v \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_srt_single.v \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_top.v \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fpu/rtl/pa_fpu_dp.v \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fpu/rtl/pa_fpu_frbus.v \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fpu/rtl/pa_fpu_src_type.v \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/cve2_top.core \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_register_file_ff.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_top.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/cve2.core \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_alu.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_branch_predict.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_compressed_decoder.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_controller.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_cs_registers.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_csr.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_counter.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_decoder.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_ex_block.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_fetch_fifo.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_id_stage.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_if_stage.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_load_store_unit.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_multdiv_fast.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_multdiv_slow.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_prefetch_buffer.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_pmp.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_wb_stage.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_dummy_instr.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_core.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_sleep_unit.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_pmp_reset_default.svh \
   /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/bhv/cve2_sim_clock_gate.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/prim_ram_1p_scr.core \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/rtl/prim_ram_1p_scr.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/prim_lfsr.core \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/rtl/prim_lfsr.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/prim_ram_1p_adv.core \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/rtl/prim_ram_1p_adv.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/prim_ram_1p.core \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/build/vlsi_polito_mcu_keccak_0/sim-modelsim/generated/lowrisc_prim_ram_1p-impl_0/prim_ram_1p.core \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/build/vlsi_polito_mcu_keccak_0/sim-modelsim/generated/lowrisc_prim_ram_1p-impl_0/prim_ram_1p.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim_generic/prim_generic_ram_1p.core \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim_generic/rtl/prim_generic_ram_1p.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/prim_util_memload.core \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/rtl/prim_util_memload.svh \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/prim_ram_1p_pkg.core \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/rtl/prim_ram_1p_pkg.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/cve2_core.core \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_alu.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_branch_predict.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_compressed_decoder.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_controller.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_cs_registers.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_csr.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_counter.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_decoder.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_ex_block.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_fetch_fifo.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_id_stage.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_if_stage.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_load_store_unit.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_multdiv_fast.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_multdiv_slow.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_prefetch_buffer.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_pmp.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_wb.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_core.sv \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_pmp_reset_default.svh \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/vendor/lowrisc_ip/dv/sv/dv_utils/dv_fcov_macros.core \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/vendor/lowrisc_ip/dv/sv/dv_utils/dv_fcov_macros.svh \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/cve2_pkg.core \
-  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_pkg.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/ibex_pkg.core \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_pkg.sv \
   /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40x.core \
   /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40x/rtl/include/cv32e40x_pkg.sv \
   /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40x/rtl/if_c_obi.sv \
@@ -543,6 +465,7 @@ fusesoc-deps := \
   /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/include/cv32e40p_apu_core_pkg.sv \
   /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/include/cv32e40p_fpu_pkg.sv \
   /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/include/cv32e40p_pkg.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_pkg.sv \
   /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_alu.sv \
   /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_alu_div.sv \
   /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_ff_one.sv \
@@ -569,6 +492,25 @@ fusesoc-deps := \
   /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_fp_wrapper.sv \
   /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_top.sv \
   /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_register_file_ff.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_cast_multi.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_classifier.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_divsqrt_multi.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_fma_multi.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_fma.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_noncomp.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_opgroup_block.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_opgroup_fmt_slice.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_opgroup_multifmt_slice.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_rounding.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_top.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpu_div_sqrt_mvp/hdl/defs_div_sqrt_mvp.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpu_div_sqrt_mvp/hdl/control_mvp.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpu_div_sqrt_mvp/hdl/div_sqrt_mvp_wrapper.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpu_div_sqrt_mvp/hdl/div_sqrt_top_mvp.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpu_div_sqrt_mvp/hdl/iteration_div_sqrt_mvp.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpu_div_sqrt_mvp/hdl/norm_div_sqrt_mvp.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpu_div_sqrt_mvp/hdl/nrbd_nrsc_mvp.sv \
+  /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpu_div_sqrt_mvp/hdl/preprocess_mvp.sv \
   /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/bhv/cv32e40p_sim_clock_gate.sv \
   /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/core-v-mini-mcu/include/x-heep_packages.core \
   /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/core-v-mini-mcu/include/addr_map_rule_pkg.sv \

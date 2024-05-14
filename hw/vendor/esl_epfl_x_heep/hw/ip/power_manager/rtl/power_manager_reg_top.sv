@@ -331,9 +331,6 @@ module power_manager_reg_top #(
   logic ram_11_retentive_qs;
   logic ram_11_retentive_wd;
   logic ram_11_retentive_we;
-  logic external_0_clk_gate_qs;
-  logic external_0_clk_gate_wd;
-  logic external_0_clk_gate_we;
   logic power_gate_external_0_ack_qs;
   logic external_0_reset_qs;
   logic external_0_reset_wd;
@@ -2986,33 +2983,6 @@ module power_manager_reg_top #(
   );
 
 
-  // R[external_0_clk_gate]: V(False)
-
-  prim_subreg #(
-      .DW      (1),
-      .SWACCESS("RW"),
-      .RESVAL  (1'h0)
-  ) u_external_0_clk_gate (
-      .clk_i (clk_i),
-      .rst_ni(rst_ni),
-
-      // from register interface
-      .we(external_0_clk_gate_we),
-      .wd(external_0_clk_gate_wd),
-
-      // from internal hardware
-      .de(1'b0),
-      .d ('0),
-
-      // to internal hardware
-      .qe(),
-      .q (reg2hw.external_0_clk_gate.q),
-
-      // to register interface (read)
-      .qs(external_0_clk_gate_qs)
-  );
-
-
   // R[power_gate_external_0_ack]: V(False)
 
   prim_subreg #(
@@ -3728,7 +3698,7 @@ module power_manager_reg_top #(
 
 
 
-  logic [119:0] addr_hit;
+  logic [118:0] addr_hit;
   always_comb begin
     addr_hit = '0;
     addr_hit[0] = (reg_addr == POWER_MANAGER_WAKEUP_STATE_OFFSET);
@@ -3823,34 +3793,33 @@ module power_manager_reg_top #(
     addr_hit[89] = (reg_addr == POWER_MANAGER_RAM_11_WAIT_ACK_SWITCH_ON_OFFSET);
     addr_hit[90] = (reg_addr == POWER_MANAGER_RAM_11_ISO_OFFSET);
     addr_hit[91] = (reg_addr == POWER_MANAGER_RAM_11_RETENTIVE_OFFSET);
-    addr_hit[92] = (reg_addr == POWER_MANAGER_EXTERNAL_0_CLK_GATE_OFFSET);
-    addr_hit[93] = (reg_addr == POWER_MANAGER_POWER_GATE_EXTERNAL_0_ACK_OFFSET);
-    addr_hit[94] = (reg_addr == POWER_MANAGER_EXTERNAL_0_RESET_OFFSET);
-    addr_hit[95] = (reg_addr == POWER_MANAGER_EXTERNAL_0_SWITCH_OFFSET);
-    addr_hit[96] = (reg_addr == POWER_MANAGER_EXTERNAL_0_WAIT_ACK_SWITCH_ON_OFFSET);
-    addr_hit[97] = (reg_addr == POWER_MANAGER_EXTERNAL_0_ISO_OFFSET);
-    addr_hit[98] = (reg_addr == POWER_MANAGER_EXTERNAL_RAM_0_RETENTIVE_OFFSET);
-    addr_hit[99] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_CORE_OFFSET);
-    addr_hit[100] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_PERIPH_OFFSET);
-    addr_hit[101] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_RAM_BLOCK_0_OFFSET);
-    addr_hit[102] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_RAM_BLOCK_1_OFFSET);
-    addr_hit[103] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_RAM_BLOCK_2_OFFSET);
-    addr_hit[104] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_RAM_BLOCK_3_OFFSET);
-    addr_hit[105] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_RAM_BLOCK_4_OFFSET);
-    addr_hit[106] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_RAM_BLOCK_5_OFFSET);
-    addr_hit[107] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_RAM_BLOCK_6_OFFSET);
-    addr_hit[108] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_RAM_BLOCK_7_OFFSET);
-    addr_hit[109] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_RAM_BLOCK_8_OFFSET);
-    addr_hit[110] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_RAM_BLOCK_9_OFFSET);
-    addr_hit[111] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_RAM_BLOCK_10_OFFSET);
-    addr_hit[112] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_RAM_BLOCK_11_OFFSET);
-    addr_hit[113] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_EXTERNAL_0_OFFSET);
-    addr_hit[114] = (reg_addr == POWER_MANAGER_MASTER_CPU_FORCE_SWITCH_OFF_OFFSET);
-    addr_hit[115] = (reg_addr == POWER_MANAGER_MASTER_CPU_FORCE_SWITCH_ON_OFFSET);
-    addr_hit[116] = (reg_addr == POWER_MANAGER_MASTER_CPU_FORCE_RESET_ASSERT_OFFSET);
-    addr_hit[117] = (reg_addr == POWER_MANAGER_MASTER_CPU_FORCE_RESET_DEASSERT_OFFSET);
-    addr_hit[118] = (reg_addr == POWER_MANAGER_MASTER_CPU_FORCE_ISO_OFF_OFFSET);
-    addr_hit[119] = (reg_addr == POWER_MANAGER_MASTER_CPU_FORCE_ISO_ON_OFFSET);
+    addr_hit[92] = (reg_addr == POWER_MANAGER_POWER_GATE_EXTERNAL_0_ACK_OFFSET);
+    addr_hit[93] = (reg_addr == POWER_MANAGER_EXTERNAL_0_RESET_OFFSET);
+    addr_hit[94] = (reg_addr == POWER_MANAGER_EXTERNAL_0_SWITCH_OFFSET);
+    addr_hit[95] = (reg_addr == POWER_MANAGER_EXTERNAL_0_WAIT_ACK_SWITCH_ON_OFFSET);
+    addr_hit[96] = (reg_addr == POWER_MANAGER_EXTERNAL_0_ISO_OFFSET);
+    addr_hit[97] = (reg_addr == POWER_MANAGER_EXTERNAL_RAM_0_RETENTIVE_OFFSET);
+    addr_hit[98] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_CORE_OFFSET);
+    addr_hit[99] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_PERIPH_OFFSET);
+    addr_hit[100] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_RAM_BLOCK_0_OFFSET);
+    addr_hit[101] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_RAM_BLOCK_1_OFFSET);
+    addr_hit[102] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_RAM_BLOCK_2_OFFSET);
+    addr_hit[103] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_RAM_BLOCK_3_OFFSET);
+    addr_hit[104] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_RAM_BLOCK_4_OFFSET);
+    addr_hit[105] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_RAM_BLOCK_5_OFFSET);
+    addr_hit[106] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_RAM_BLOCK_6_OFFSET);
+    addr_hit[107] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_RAM_BLOCK_7_OFFSET);
+    addr_hit[108] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_RAM_BLOCK_8_OFFSET);
+    addr_hit[109] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_RAM_BLOCK_9_OFFSET);
+    addr_hit[110] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_RAM_BLOCK_10_OFFSET);
+    addr_hit[111] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_RAM_BLOCK_11_OFFSET);
+    addr_hit[112] = (reg_addr == POWER_MANAGER_MONITOR_POWER_GATE_EXTERNAL_0_OFFSET);
+    addr_hit[113] = (reg_addr == POWER_MANAGER_MASTER_CPU_FORCE_SWITCH_OFF_OFFSET);
+    addr_hit[114] = (reg_addr == POWER_MANAGER_MASTER_CPU_FORCE_SWITCH_ON_OFFSET);
+    addr_hit[115] = (reg_addr == POWER_MANAGER_MASTER_CPU_FORCE_RESET_ASSERT_OFFSET);
+    addr_hit[116] = (reg_addr == POWER_MANAGER_MASTER_CPU_FORCE_RESET_DEASSERT_OFFSET);
+    addr_hit[117] = (reg_addr == POWER_MANAGER_MASTER_CPU_FORCE_ISO_OFF_OFFSET);
+    addr_hit[118] = (reg_addr == POWER_MANAGER_MASTER_CPU_FORCE_ISO_ON_OFFSET);
   end
 
   assign addrmiss = (reg_re || reg_we) ? ~|addr_hit : 1'b0;
@@ -3976,8 +3945,7 @@ module power_manager_reg_top #(
                (addr_hit[115] & (|(POWER_MANAGER_PERMIT[115] & ~reg_be))) |
                (addr_hit[116] & (|(POWER_MANAGER_PERMIT[116] & ~reg_be))) |
                (addr_hit[117] & (|(POWER_MANAGER_PERMIT[117] & ~reg_be))) |
-               (addr_hit[118] & (|(POWER_MANAGER_PERMIT[118] & ~reg_be))) |
-               (addr_hit[119] & (|(POWER_MANAGER_PERMIT[119] & ~reg_be)))));
+               (addr_hit[118] & (|(POWER_MANAGER_PERMIT[118] & ~reg_be)))));
   end
 
   assign wakeup_state_we = addr_hit[0] & reg_we & !reg_error;
@@ -4229,40 +4197,37 @@ module power_manager_reg_top #(
   assign ram_11_retentive_we = addr_hit[91] & reg_we & !reg_error;
   assign ram_11_retentive_wd = reg_wdata[0];
 
-  assign external_0_clk_gate_we = addr_hit[92] & reg_we & !reg_error;
-  assign external_0_clk_gate_wd = reg_wdata[0];
-
-  assign external_0_reset_we = addr_hit[94] & reg_we & !reg_error;
+  assign external_0_reset_we = addr_hit[93] & reg_we & !reg_error;
   assign external_0_reset_wd = reg_wdata[0];
 
-  assign external_0_switch_we = addr_hit[95] & reg_we & !reg_error;
+  assign external_0_switch_we = addr_hit[94] & reg_we & !reg_error;
   assign external_0_switch_wd = reg_wdata[0];
 
-  assign external_0_wait_ack_switch_on_we = addr_hit[96] & reg_we & !reg_error;
+  assign external_0_wait_ack_switch_on_we = addr_hit[95] & reg_we & !reg_error;
   assign external_0_wait_ack_switch_on_wd = reg_wdata[0];
 
-  assign external_0_iso_we = addr_hit[97] & reg_we & !reg_error;
+  assign external_0_iso_we = addr_hit[96] & reg_we & !reg_error;
   assign external_0_iso_wd = reg_wdata[0];
 
-  assign external_ram_0_retentive_we = addr_hit[98] & reg_we & !reg_error;
+  assign external_ram_0_retentive_we = addr_hit[97] & reg_we & !reg_error;
   assign external_ram_0_retentive_wd = reg_wdata[0];
 
-  assign master_cpu_force_switch_off_we = addr_hit[114] & reg_we & !reg_error;
+  assign master_cpu_force_switch_off_we = addr_hit[113] & reg_we & !reg_error;
   assign master_cpu_force_switch_off_wd = reg_wdata[0];
 
-  assign master_cpu_force_switch_on_we = addr_hit[115] & reg_we & !reg_error;
+  assign master_cpu_force_switch_on_we = addr_hit[114] & reg_we & !reg_error;
   assign master_cpu_force_switch_on_wd = reg_wdata[0];
 
-  assign master_cpu_force_reset_assert_we = addr_hit[116] & reg_we & !reg_error;
+  assign master_cpu_force_reset_assert_we = addr_hit[115] & reg_we & !reg_error;
   assign master_cpu_force_reset_assert_wd = reg_wdata[0];
 
-  assign master_cpu_force_reset_deassert_we = addr_hit[117] & reg_we & !reg_error;
+  assign master_cpu_force_reset_deassert_we = addr_hit[116] & reg_we & !reg_error;
   assign master_cpu_force_reset_deassert_wd = reg_wdata[0];
 
-  assign master_cpu_force_iso_off_we = addr_hit[118] & reg_we & !reg_error;
+  assign master_cpu_force_iso_off_we = addr_hit[117] & reg_we & !reg_error;
   assign master_cpu_force_iso_off_wd = reg_wdata[0];
 
-  assign master_cpu_force_iso_on_we = addr_hit[119] & reg_we & !reg_error;
+  assign master_cpu_force_iso_on_we = addr_hit[118] & reg_we & !reg_error;
   assign master_cpu_force_iso_on_wd = reg_wdata[0];
 
   // Read data return
@@ -4643,114 +4608,110 @@ module power_manager_reg_top #(
       end
 
       addr_hit[92]: begin
-        reg_rdata_next[0] = external_0_clk_gate_qs;
-      end
-
-      addr_hit[93]: begin
         reg_rdata_next[0] = power_gate_external_0_ack_qs;
       end
 
-      addr_hit[94]: begin
+      addr_hit[93]: begin
         reg_rdata_next[0] = external_0_reset_qs;
       end
 
-      addr_hit[95]: begin
+      addr_hit[94]: begin
         reg_rdata_next[0] = external_0_switch_qs;
       end
 
-      addr_hit[96]: begin
+      addr_hit[95]: begin
         reg_rdata_next[0] = external_0_wait_ack_switch_on_qs;
       end
 
-      addr_hit[97]: begin
+      addr_hit[96]: begin
         reg_rdata_next[0] = external_0_iso_qs;
       end
 
-      addr_hit[98]: begin
+      addr_hit[97]: begin
         reg_rdata_next[0] = external_ram_0_retentive_qs;
       end
 
-      addr_hit[99]: begin
+      addr_hit[98]: begin
         reg_rdata_next[2:0] = monitor_power_gate_core_qs;
       end
 
-      addr_hit[100]: begin
+      addr_hit[99]: begin
         reg_rdata_next[2:0] = monitor_power_gate_periph_qs;
       end
 
-      addr_hit[101]: begin
+      addr_hit[100]: begin
         reg_rdata_next[1:0] = monitor_power_gate_ram_block_0_qs;
       end
 
-      addr_hit[102]: begin
+      addr_hit[101]: begin
         reg_rdata_next[1:0] = monitor_power_gate_ram_block_1_qs;
       end
 
-      addr_hit[103]: begin
+      addr_hit[102]: begin
         reg_rdata_next[1:0] = monitor_power_gate_ram_block_2_qs;
       end
 
-      addr_hit[104]: begin
+      addr_hit[103]: begin
         reg_rdata_next[1:0] = monitor_power_gate_ram_block_3_qs;
       end
 
-      addr_hit[105]: begin
+      addr_hit[104]: begin
         reg_rdata_next[1:0] = monitor_power_gate_ram_block_4_qs;
       end
 
-      addr_hit[106]: begin
+      addr_hit[105]: begin
         reg_rdata_next[1:0] = monitor_power_gate_ram_block_5_qs;
       end
 
-      addr_hit[107]: begin
+      addr_hit[106]: begin
         reg_rdata_next[1:0] = monitor_power_gate_ram_block_6_qs;
       end
 
-      addr_hit[108]: begin
+      addr_hit[107]: begin
         reg_rdata_next[1:0] = monitor_power_gate_ram_block_7_qs;
       end
 
-      addr_hit[109]: begin
+      addr_hit[108]: begin
         reg_rdata_next[1:0] = monitor_power_gate_ram_block_8_qs;
       end
 
-      addr_hit[110]: begin
+      addr_hit[109]: begin
         reg_rdata_next[1:0] = monitor_power_gate_ram_block_9_qs;
       end
 
-      addr_hit[111]: begin
+      addr_hit[110]: begin
         reg_rdata_next[1:0] = monitor_power_gate_ram_block_10_qs;
       end
 
-      addr_hit[112]: begin
+      addr_hit[111]: begin
         reg_rdata_next[1:0] = monitor_power_gate_ram_block_11_qs;
       end
 
-      addr_hit[113]: begin
+      addr_hit[112]: begin
         reg_rdata_next[2:0] = monitor_power_gate_external_0_qs;
       end
 
-      addr_hit[114]: begin
+      addr_hit[113]: begin
         reg_rdata_next[0] = master_cpu_force_switch_off_qs;
       end
 
-      addr_hit[115]: begin
+      addr_hit[114]: begin
         reg_rdata_next[0] = master_cpu_force_switch_on_qs;
       end
 
-      addr_hit[116]: begin
+      addr_hit[115]: begin
         reg_rdata_next[0] = master_cpu_force_reset_assert_qs;
       end
 
-      addr_hit[117]: begin
+      addr_hit[116]: begin
         reg_rdata_next[0] = master_cpu_force_reset_deassert_qs;
       end
 
-      addr_hit[118]: begin
+      addr_hit[117]: begin
         reg_rdata_next[0] = master_cpu_force_iso_off_qs;
       end
 
-      addr_hit[119]: begin
+      addr_hit[118]: begin
         reg_rdata_next[0] = master_cpu_force_iso_on_qs;
       end
 

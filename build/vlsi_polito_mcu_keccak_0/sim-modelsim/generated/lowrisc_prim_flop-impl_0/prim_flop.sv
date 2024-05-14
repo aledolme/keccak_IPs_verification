@@ -26,8 +26,8 @@ module prim_flop
 
   if (1) begin : gen_generic
     prim_generic_flop #(
-      .Width(Width),
-      .ResetValue(ResetValue)
+      .ResetValue(ResetValue),
+      .Width(Width)
     ) u_impl_generic (
       .*
     );

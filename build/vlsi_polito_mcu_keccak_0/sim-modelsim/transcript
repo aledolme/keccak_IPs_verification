@@ -1,25 +1,462 @@
 # vsim -c -sv_lib ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/dv/dpi/uartdpi/uartdpi -sv_lib ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_pulpissimo/rtl/tb/remote_bitbang/librbs -voptargs="+acc" "+c" "+firmware=../../../sw/applications/keccak_test/main.hex" -do "run -all; quit -code [expr [coverage attribute -name TESTSTATUS -concise] >= 2 ? [coverage attribute -name TESTSTATUS -concise] : 0]; exit" tb_top -gJTAG_DPI=0 -gCOREV_PULP=0 
-# Start time: 11:33:07 on May 14,2024
-# Loading /tmp/alessandra.dolmeta@lugdush_dpi_130360/linux_x86_64_gcc-7.4.0/export_tramp.so
+# Start time: 11:37:18 on May 14,2024
+# Loading /tmp/alessandra.dolmeta@lugdush_dpi_144979/linux_x86_64_gcc-7.4.0/export_tramp.so
 # ** Note: (vsim-3812) Design is being optimized...
-# ** Error (suppressible): ../../../tb/tb_util.svh(103): (vopt-7063) Failed to find 'ram_i' in hierarchical name 'keccak_x_heep_top_i.x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[0].ram_i.tc_ram_i.sram'.
-#         Region: tb_top.testharness_i
-# ** Error (suppressible): ../../../tb/tb_util.svh(121): (vopt-7063) Failed to find 'ram_i' in hierarchical name 'keccak_x_heep_top_i.x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[1].ram_i.tc_ram_i.sram'.
-#         Region: tb_top.testharness_i
-# ** Error (suppressible): ../../../tb/testharness.sv(127): (vopt-7063) Failed to find 'cpu_subsystem_powergate_switch' in hierarchical name 'keccak_x_heep_top_i.x_heep_system_i.cpu_subsystem_powergate_switch'.
-#         Region: tb_top.testharness_i
-# ** Error (suppressible): ../../../tb/testharness.sv(128): (vopt-7063) Failed to find 'peripheral_subsystem_powergate_switch' in hierarchical name 'keccak_x_heep_top_i.x_heep_system_i.peripheral_subsystem_powergate_switch'.
-#         Region: tb_top.testharness_i
-# ** Error (suppressible): ../../../tb/testharness.sv(129): (vopt-7063) Failed to find 'memory_subsystem_banks_powergate_switch' in hierarchical name 'keccak_x_heep_top_i.x_heep_system_i.memory_subsystem_banks_powergate_switch'.
-#         Region: tb_top.testharness_i
-# ** Error (suppressible): ../../../tb/testharness.sv(146): (vopt-7063) Failed to find 'cpu_subsystem_powergate_switch_ack_i' in hierarchical name 'keccak_x_heep_top_i.x_heep_system_i.core_v_mini_mcu_i.cpu_subsystem_powergate_switch_ack_i'.
-#         Region: tb_top.testharness_i
-# ** Error (suppressible): ../../../tb/testharness.sv(147): (vopt-7063) Failed to find 'peripheral_subsystem_powergate_switch_ack_i' in hierarchical name 'keccak_x_heep_top_i.x_heep_system_i.core_v_mini_mcu_i.peripheral_subsystem_powergate_switch_ack_i'.
-#         Region: tb_top.testharness_i
-# ** Error (suppressible): ../../../tb/testharness.sv(148): (vopt-7063) Failed to find 'memory_subsystem_banks_powergate_switch_ack_i' in hierarchical name 'keccak_x_heep_top_i.x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_banks_powergate_switch_ack_i'.
-#         Region: tb_top.testharness_i
-# Optimization failed
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=8, Warnings=0.
-# Error loading design
-# End time: 11:33:08 on May 14,2024, Elapsed time: 0:00:01
-# Errors: 8, Warnings: 0
+# ** Note: (vopt-143) Recognized 1 FSM in module "keccak_cu(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "power_manager_sequence(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "power_manager_sequence(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "reg_to_counter(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "obi_to_picorv32(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "power_manager_counter_sequence(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "power_manager_counter_sequence(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "cdc_4phase_src(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "cdc_4phase_src(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "cdc_4phase_dst(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "cdc_4phase_dst(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "dma(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "dm_mem(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "prim_diff_decode(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "prim_diff_decode(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "cv32e40p_alu_div(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spimemio(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "cv32e40p_mult(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "dmi_jtag_tap(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "dmi_jtag(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "clk_int_div(fast)".
+# ** Warning: ../../../tb/testharness.sv(85): (vopt-2685) [TFMPC] - Too few port connections for 'keccak_x_heep_top_i'.  Expected 25, found 19.
+# ** Warning: ../../../tb/testharness.sv(85): (vopt-2718) [TFMPC] - Missing connection for port 'spi_sck'.
+# ** Warning: ../../../tb/testharness.sv(85): (vopt-2718) [TFMPC] - Missing connection for port 'spi_csb'.
+# ** Warning: ../../../tb/testharness.sv(85): (vopt-2718) [TFMPC] - Missing connection for port 'spi_sd_io'.
+# ** Warning: ../../../tb/testharness.sv(85): (vopt-2718) [TFMPC] - Missing connection for port 'spi_flash_sck'.
+# ** Warning: ../../../tb/testharness.sv(85): (vopt-2718) [TFMPC] - Missing connection for port 'spi_flash_csb'.
+# ** Warning: ../../../tb/testharness.sv(85): (vopt-2718) [TFMPC] - Missing connection for port 'spi_flash_sd_io'.
+# ** Note: (vopt-143) Recognized 1 FSM in module "cdc_reset_ctrlr_half(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "cdc_reset_ctrlr_half(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "cv32e40p_aligner(fast)".
+# ** Note: (vopt-143) Recognized 2 FSMs in module "cv32e40p_controller(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "i2c_fsm(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spi_host_fsm(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spi_host_fsm(fast__1)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=7.
+# //  Questa Sim-64
+# //  Version 2020.4 linux_x86_64 Oct 13 2020
+# //
+# //  Copyright 1991-2020 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb_top(fast)
+# Loading work.addr_map_rule_pkg(fast)
+# Loading work.core_v_mini_mcu_pkg(fast)
+# Loading work.keccak_x_heep_pkg(fast)
+# Loading work.reg_pkg(fast)
+# Loading work.obi_pkg(fast)
+# Loading work.testharness(fast)
+# Loading work.keccak_x_heep_top(fast)
+# Loading work.cv32e40x_pkg(fast)
+# Loading work.if_xif(fast__1)
+# Loading work.keccak_ctrl_reg_pkg(fast)
+# Loading work.keccak_data_reg_pkg(fast)
+# Loading work.keccak_top(fast)
+# Loading work.periph_to_reg(fast)
+# Loading work.keccak_data_reg_top(fast)
+# Loading work.prim_subreg(fast)
+# Loading work.prim_subreg_arb(fast)
+# Loading work.prim_subreg_ext(fast)
+# Loading work.keccak_ctrl_reg_top(fast)
+# Loading work.prim_subreg(fast__1)
+# Loading work.prim_subreg_arb(fast__1)
+# Loading work.prim_subreg(fast__2)
+# Loading work.prim_subreg_arb(fast__2)
+# Loading work.x_heep_system(fast)
+# Loading work.cv32e40p_apu_core_pkg(fast)
+# Loading work.core_v_mini_mcu(fast)
+# Loading work.ibex_pkg(fast)
+# Loading work.cpu_subsystem(fast)
+# Loading work.cv32e40p_top(fast)
+# Loading work.cv32e40p_pkg(fast)
+# Loading work.cv32e40p_core(fast)
+# Loading work.cv32e40p_sleep_unit(fast)
+# Loading work.cv32e40p_clock_gate(fast)
+# Loading work.cv32e40p_if_stage(fast)
+# Loading work.cv32e40p_prefetch_buffer(fast)
+# Loading work.cv32e40p_prefetch_controller(fast)
+# Loading work.cv32e40p_fifo(fast)
+# Loading work.cv32e40p_obi_interface(fast)
+# Loading work.cv32e40p_aligner(fast)
+# Loading work.cv32e40p_compressed_decoder(fast)
+# Loading work.cv32e40p_fpu_pkg(fast)
+# Loading work.cv32e40p_id_stage(fast)
+# Loading work.cv32e40p_register_file(fast)
+# Loading work.cv32e40p_decoder(fast)
+# Loading work.cv32e40p_controller(fast)
+# Loading work.cv32e40p_int_controller(fast)
+# Loading work.cv32e40p_ex_stage(fast)
+# Loading work.cv32e40p_alu(fast)
+# Loading work.cv32e40p_popcnt(fast)
+# Loading work.cv32e40p_ff_one(fast)
+# Loading work.cv32e40p_alu_div(fast)
+# Loading work.cv32e40p_mult(fast)
+# Loading work.cv32e40p_load_store_unit(fast)
+# Loading work.cv32e40p_obi_interface(fast__1)
+# Loading work.cv32e40p_cs_registers(fast)
+# Loading work.dm(fast)
+# Loading work.debug_subsystem(fast)
+# Loading work.dmi_jtag(fast)
+# Loading work.dmi_jtag_tap(fast)
+# Loading work.cluster_clock_inverter(fast)
+# Loading work.tc_clk_inverter(fast)
+# Loading work.pulp_clock_mux2(fast)
+# Loading work.tc_clk_mux2(fast)
+# Loading work.dmi_cdc(fast)
+# Loading work.cdc_2phase_clearable(fast)
+# Loading work.cdc_2phase_src_clearable(fast)
+# Loading work.sync(fast)
+# Loading work.cdc_2phase_dst_clearable(fast)
+# Loading work.sync(fast__1)
+# Loading work.cdc_reset_ctrlr_pkg(fast)
+# Loading work.cdc_reset_ctrlr(fast)
+# Loading work.cdc_reset_ctrlr_half(fast)
+# Loading work.cdc_4phase_src(fast)
+# Loading work.sync(fast__2)
+# Loading work.cdc_4phase_dst(fast)
+# Loading work.cdc_reset_ctrlr_half(fast__1)
+# Loading work.cdc_4phase_src(fast__1)
+# Loading work.sync(fast__3)
+# Loading work.cdc_4phase_dst(fast__1)
+# Loading work.cdc_2phase_clearable(fast__1)
+# Loading work.cdc_2phase_src_clearable(fast__1)
+# Loading work.cdc_2phase_dst_clearable(fast__1)
+# Loading work.cdc_reset_ctrlr(fast__1)
+# Loading work.dm_obi_top(fast)
+# Loading work.dm_top(fast)
+# Loading work.dm_csrs(fast)
+# Loading work.fifo_v2(fast)
+# Loading work.fifo_v3(fast)
+# Loading work.dm_sba(fast)
+# Loading work.dm_mem(fast)
+# Loading work.debug_rom(fast)
+# Loading work.system_bus(fast)
+# Loading work.cf_math_pkg(fast)
+# Loading work.xbar_varlat_one_to_n(fast)
+# Loading work.addr_decode(fast)
+# Loading work.xbar_varlat(fast)
+# Loading work.addr_dec_resp_mux_varlat(fast)
+# Loading work.system_xbar(fast)
+# Loading work.addr_decode(fast__1)
+# Loading work.xbar_varlat(fast__1)
+# Loading work.addr_dec_resp_mux_varlat(fast__1)
+# Loading work.rr_arb_tree(fast)
+# Loading work.lzc(fast)
+# Loading work.memory_subsystem(fast)
+# Loading work.tc_clk_gating(fast)
+# Loading work.sram_wrapper(fast)
+# Loading work.tc_sram(fast)
+# Loading work.sram_wrapper(fast__1)
+# Loading work.tc_sram(fast__1)
+# Loading work.spi_device_reg_pkg(fast)
+# Loading work.spi_device_pkg(fast)
+# Loading work.rv_plic_reg_pkg(fast)
+# Loading work.prim_secded_pkg(fast)
+# Loading work.top_pkg(fast)
+# Loading work.tlul_pkg(fast)
+# Loading work.spi_host_reg_pkg(fast)
+# Loading work.ao_peripheral_subsystem(fast)
+# Loading work.addr_decode(fast__2)
+# Loading work.reg_demux(fast)
+# Loading work.soc_ctrl_reg_pkg(fast)
+# Loading work.soc_ctrl(fast)
+# Loading work.soc_ctrl_reg_top(fast)
+# Loading work.prim_subreg(fast__3)
+# Loading work.prim_subreg_arb(fast__3)
+# Loading work.prim_subreg(fast__4)
+# Loading work.prim_subreg_arb(fast__4)
+# Loading work.prim_subreg(fast__5)
+# Loading work.prim_subreg(fast__6)
+# Loading work.prim_subreg(fast__7)
+# Loading work.boot_rom(fast)
+# Loading work.spi_subsystem(fast)
+# Loading work.obi_spimemio_reg_pkg(fast)
+# Loading work.picorv32_pkg(fast)
+# Loading work.obi_spimemio(fast)
+# Loading work.obi_to_picorv32(fast)
+# Loading work.obi_spimemio_reg_top(fast)
+# Loading work.prim_subreg(fast__8)
+# Loading work.prim_subreg_arb(fast__5)
+# Loading work.spimemio(fast)
+# Loading work.spimemio_xfer(fast)
+# Loading work.prim_util_pkg(fast)
+# Loading work.spi_host_cmd_pkg(fast)
+# Loading work.prim_alert_pkg(fast)
+# Loading work.spi_host(fast)
+# Loading work.spi_host_reg_top(fast)
+# Loading work.reg_demux(fast__1)
+# Loading work.prim_subreg(fast__9)
+# Loading work.prim_subreg_arb(fast__6)
+# Loading work.prim_subreg_ext(fast__1)
+# Loading work.prim_subreg(fast__10)
+# Loading work.prim_subreg_arb(fast__7)
+# Loading work.prim_subreg(fast__11)
+# Loading work.prim_subreg(fast__12)
+# Loading work.prim_subreg_arb(fast__8)
+# Loading work.prim_subreg(fast__13)
+# Loading work.prim_subreg_arb(fast__9)
+# Loading work.prim_subreg(fast__14)
+# Loading work.prim_subreg_arb(fast__10)
+# Loading work.prim_subreg(fast__15)
+# Loading work.prim_subreg_arb(fast__11)
+# Loading work.prim_subreg_ext(fast__2)
+# Loading work.prim_subreg_ext(fast__3)
+# Loading work.prim_alert_sender(fast)
+# Loading work.prim_diff_decode(fast)
+# Loading work.prim_flop_2sync(fast)
+# Loading work.prim_generic_flop_2sync(fast)
+# Loading work.prim_flop(fast)
+# Loading work.prim_generic_flop(fast)
+# Loading work.prim_flop_2sync(fast__1)
+# Loading work.prim_generic_flop_2sync(fast__1)
+# Loading work.prim_flop(fast__1)
+# Loading work.prim_generic_flop(fast__1)
+# Loading work.prim_buf(fast)
+# Loading work.prim_generic_buf(fast)
+# Loading work.spi_host_command_queue(fast)
+# Loading work.prim_fifo_sync(fast)
+# Loading work.spi_host_window(fast)
+# Loading work.spi_host_data_fifos(fast)
+# Loading work.prim_fifo_sync(fast__1)
+# Loading work.prim_fifo_sync(fast__2)
+# Loading work.spi_host_core(fast)
+# Loading work.spi_host_byte_merge(fast)
+# Loading work.prim_packer_fifo(fast)
+# Loading work.spi_host_byte_select(fast)
+# Loading work.prim_packer_fifo(fast__1)
+# Loading work.spi_host_shift_register(fast)
+# Loading work.spi_host_fsm(fast)
+# Loading work.prim_flop_en(fast)
+# Loading work.prim_generic_flop_en(fast)
+# Loading work.prim_intr_hw(fast)
+# Loading work.power_manager_reg_pkg(fast)
+# Loading work.power_manager(fast)
+# Loading work.power_manager_reg_top(fast)
+# Loading work.prim_subreg(fast__16)
+# Loading work.prim_subreg_arb(fast__12)
+# Loading work.prim_subreg(fast__17)
+# Loading work.prim_subreg_arb(fast__13)
+# Loading work.reg_to_counter(fast)
+# Loading work.power_manager_counter_sequence(fast)
+# Loading work.power_manager_counter_sequence(fast__1)
+# Loading work.power_manager_sequence(fast)
+# Loading work.power_manager_sequence(fast__1)
+# Loading work.reg_to_tlul(fast)
+# Loading work.rv_timer_reg_pkg(fast)
+# Loading work.rv_timer(fast)
+# Loading work.timer_core(fast)
+# Loading work.rv_timer_reg_top(fast)
+# Loading work.tlul_adapter_reg(fast)
+# Loading work.tlul_err(fast)
+# Loading work.prim_subreg(fast__18)
+# Loading work.prim_subreg_arb(fast__14)
+# Loading work.prim_subreg(fast__19)
+# Loading work.prim_subreg(fast__20)
+# Loading work.dma_reg_pkg(fast)
+# Loading work.dma(fast)
+# Loading work.fifo_v3(fast__1)
+# Loading work.dma_reg_top(fast)
+# Loading work.prim_subreg(fast__21)
+# Loading work.prim_subreg(fast__22)
+# Loading work.prim_subreg_arb(fast__15)
+# Loading work.prim_subreg(fast__23)
+# Loading work.prim_subreg_arb(fast__16)
+# Loading work.fast_intr_ctrl_reg_pkg(fast)
+# Loading work.fast_intr_ctrl(fast)
+# Loading work.fast_intr_ctrl_reg_top(fast)
+# Loading work.prim_subreg(fast__24)
+# Loading work.prim_subreg_arb(fast__17)
+# Loading work.prim_subreg(fast__25)
+# Loading work.prim_subreg_arb(fast__18)
+# Loading work.prim_subreg(fast__26)
+# Loading work.gpio_reg_pkg(fast)
+# Loading work.gpio(fast)
+# Loading work.gpio_reg_top(fast)
+# Loading work.prim_subreg_ext(fast__4)
+# Loading work.gpio_input_stage(fast)
+# Loading work.tc_clk_gating(fast__1)
+# Loading work.uart_reg_pkg(fast)
+# Loading work.uart(fast)
+# Loading work.uart_reg_top(fast)
+# Loading work.tlul_adapter_reg(fast__1)
+# Loading work.prim_subreg_ext(fast__5)
+# Loading work.prim_subreg(fast__27)
+# Loading work.prim_subreg_arb(fast__19)
+# Loading work.prim_subreg(fast__28)
+# Loading work.prim_subreg_arb(fast__20)
+# Loading work.prim_subreg_ext(fast__6)
+# Loading work.prim_subreg_ext(fast__7)
+# Loading work.prim_subreg(fast__29)
+# Loading work.prim_subreg_arb(fast__21)
+# Loading work.uart_core(fast)
+# Loading work.prim_fifo_sync(fast__3)
+# Loading work.uart_tx(fast)
+# Loading work.uart_rx(fast)
+# Loading work.peripheral_subsystem(fast)
+# Loading work.periph_to_reg(fast__1)
+# Loading work.addr_decode(fast__3)
+# Loading work.reg_demux(fast__2)
+# Loading work.rv_plic(fast)
+# Loading work.rv_plic_gateway(fast)
+# Loading work.rv_plic_target(fast)
+# Loading work.rv_plic_reg_top(fast)
+# Loading work.tlul_adapter_reg(fast__2)
+# Loading work.tlul_err(fast__1)
+# Loading work.prim_subreg(fast__30)
+# Loading work.prim_subreg(fast__31)
+# Loading work.prim_subreg(fast__32)
+# Loading work.gpio(fast__1)
+# Loading work.gpio_reg_top(fast__1)
+# Loading work.prim_subreg(fast__33)
+# Loading work.prim_subreg(fast__34)
+# Loading work.gpio_input_stage(fast__1)
+# Loading work.tc_clk_gating(fast__2)
+# Loading work.i2c_reg_pkg(fast)
+# Loading work.i2c(fast)
+# Loading work.i2c_reg_top(fast)
+# Loading work.tlul_adapter_reg(fast__3)
+# Loading work.prim_subreg(fast__35)
+# Loading work.prim_subreg(fast__36)
+# Loading work.prim_subreg(fast__37)
+# Loading work.prim_subreg(fast__38)
+# Loading work.prim_subreg_arb(fast__22)
+# Loading work.prim_subreg(fast__39)
+# Loading work.prim_subreg_arb(fast__23)
+# Loading work.prim_subreg(fast__40)
+# Loading work.i2c_core(fast)
+# Loading work.prim_fifo_sync(fast__4)
+# Loading work.prim_fifo_sync(fast__5)
+# Loading work.prim_fifo_sync(fast__6)
+# Loading work.prim_fifo_sync(fast__7)
+# Loading work.i2c_fsm(fast)
+# Loading work.prim_intr_hw(fast__1)
+# Loading work.rv_timer(fast__1)
+# Loading work.timer_core(fast__1)
+# Loading work.rv_timer_reg_top(fast__1)
+# Loading work.prim_subreg(fast__41)
+# Loading work.prim_subreg(fast__42)
+# Loading work.prim_subreg(fast__43)
+# Loading work.spi_host(fast__1)
+# Loading work.spi_host_reg_top(fast__1)
+# Loading work.reg_demux(fast__3)
+# Loading work.prim_subreg(fast__44)
+# Loading work.prim_subreg(fast__45)
+# Loading work.prim_subreg(fast__46)
+# Loading work.prim_subreg(fast__47)
+# Loading work.prim_subreg(fast__48)
+# Loading work.prim_subreg(fast__49)
+# Loading work.prim_alert_sender(fast__1)
+# Loading work.prim_diff_decode(fast__1)
+# Loading work.prim_flop_2sync(fast__2)
+# Loading work.prim_generic_flop_2sync(fast__2)
+# Loading work.prim_flop(fast__2)
+# Loading work.prim_generic_flop(fast__2)
+# Loading work.prim_flop_2sync(fast__3)
+# Loading work.prim_generic_flop_2sync(fast__3)
+# Loading work.prim_flop(fast__3)
+# Loading work.prim_generic_flop(fast__3)
+# Loading work.spi_host_command_queue(fast__1)
+# Loading work.prim_fifo_sync(fast__8)
+# Loading work.spi_host_window(fast__1)
+# Loading work.spi_host_data_fifos(fast__1)
+# Loading work.prim_fifo_sync(fast__9)
+# Loading work.prim_fifo_sync(fast__10)
+# Loading work.spi_host_core(fast__1)
+# Loading work.spi_host_byte_merge(fast__1)
+# Loading work.prim_packer_fifo(fast__2)
+# Loading work.spi_host_byte_select(fast__1)
+# Loading work.prim_packer_fifo(fast__3)
+# Loading work.spi_host_shift_register(fast__1)
+# Loading work.spi_host_fsm(fast__1)
+# Loading work.prim_flop_en(fast__1)
+# Loading work.prim_generic_flop_en(fast__1)
+# Loading work.i2s_reg_pkg(fast)
+# Loading work.i2s(fast)
+# Loading work.unread(fast)
+# Loading work.i2s_reg_top(fast)
+# Loading work.prim_subreg(fast__50)
+# Loading work.prim_subreg(fast__51)
+# Loading work.i2s_core(fast)
+# Loading work.clk_int_div(fast)
+# Loading work.tc_clk_xor2(fast)
+# Loading work.tc_clk_mux2(fast__1)
+# Loading work.tc_clk_gating(fast__3)
+# Loading work.i2s_ws_gen(fast)
+# Loading work.i2s_rx_channel(fast)
+# Loading work.cdc_fifo_gray(fast)
+# Loading work.cdc_fifo_gray_src(fast)
+# Loading work.gray_to_binary(fast)
+# Loading work.binary_to_gray(fast)
+# Loading work.cdc_fifo_gray_dst(fast)
+# Loading work.spill_register(fast)
+# Loading work.spill_register_flushable(fast)
+# Loading work.event_counter(fast)
+# Loading work.pad_ring(fast)
+# Loading work.pad_cell_input(fast)
+# Loading work.pad_cell_input(fast__1)
+# Loading work.pad_cell_output(fast)
+# Loading work.pad_cell_inout(fast)
+# Loading work.pad_control_reg_pkg(fast)
+# Loading work.pad_control(fast)
+# Loading work.pad_control_reg_top(fast)
+# Loading work.rstgen(fast)
+# Loading work.rstgen_bypass(fast)
+# Loading work.ext_bus(fast)
+# Loading work.ext_xbar(fast)
+# Loading work.addr_decode(fast__4)
+# Loading work.xbar_varlat(fast__2)
+# Loading work.addr_dec_resp_mux_varlat(fast__2)
+# Loading work.rr_arb_tree(fast__1)
+# Loading work.lzc(fast__1)
+# Loading work.uartdpi(fast)
+# Loading work.SimJTAG_sv_unit(fast)
+# Loading work.SimJTAG(fast)
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$value$plusargs'.
+#    Time: 0 ps  Iteration: 0  Region: /tb_top/load_prog File: ../../../hw/vendor/esl_epfl_x_heep/tb/tb_top.sv Line: 77
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$value$plusargs'.
+#    Time: 0 ps  Iteration: 0  Region: /tb_top/load_prog File: ../../../hw/vendor/esl_epfl_x_heep/tb/tb_top.sv Line: 97
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$value$plusargs'.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top/testharness_i/i_uart0 File: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/dv/dpi/uartdpi/uartdpi.sv Line: 41
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading synopsys.attributes
+# Loading ieee.std_logic_misc(body)
+# Loading ieee.std_logic_arith(body)
+# Loading work.keccak_globals
+# Loading work.keccak(rtl)#1
+# Loading work.keccak_dp(rtl)#1
+# Loading work.keccak_round(rtl)#1
+# Loading work.keccak_round_constants_gen(rtl)#1
+# Loading work.keccak_cu(fast)
+# Compiling /tmp/alessandra.dolmeta@lugdush_dpi_144979/linux_x86_64_gcc-7.4.0/exportwrapper.c
+# Loading /tmp/alessandra.dolmeta@lugdush_dpi_144979/linux_x86_64_gcc-7.4.0/vsim_auto_compile.so
+# Loading ./../../../hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/dv/dpi/uartdpi/uartdpi.so
+# Loading ./../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_pulpissimo/rtl/tb/remote_bitbang/librbs.so
+# run -all
+# [TESTBENCH]: loading firmware ../../../sw/applications/keccak_test/main.hex
+# [TESTBENCH]: No Boot Option specified, using jtag (boot_sel=0)
+# [X-HEEP]: NUM_BYTES =        384KB
+# 
+# UART: Created /dev/pts/16 for uart0. Connect to it with any terminal program, e.g.
+# $ screen /dev/pts/16
+# UART: Additionally writing all UART output to 'uart0.log'.
+# EXIT SUCCESS
+# ** Note: $finish    : ../../../hw/vendor/esl_epfl_x_heep/tb/tb_top.sv(182)
+#    Time: 4568850 ns  Iteration: 1  Instance: /tb_top
+# End time: 11:38:11 on May 14,2024, Elapsed time: 0:00:53
+# Errors: 0, Warnings: 10

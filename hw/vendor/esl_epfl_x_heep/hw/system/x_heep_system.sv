@@ -39,17 +39,13 @@ module x_heep_system
     output reg_req_t ext_peripheral_slave_req_o,
     input  reg_rsp_t ext_peripheral_slave_resp_i,
 
-    output logic [EXT_DOMAINS_RND-1:0] external_subsystem_powergate_switch_no,
-    input  logic [EXT_DOMAINS_RND-1:0] external_subsystem_powergate_switch_ack_ni,
-    output logic [EXT_DOMAINS_RND-1:0] external_subsystem_powergate_iso_no,
+    output logic [EXT_DOMAINS_RND-1:0] external_subsystem_powergate_switch_o,
+    input  logic [EXT_DOMAINS_RND-1:0] external_subsystem_powergate_switch_ack_i,
+    output logic [EXT_DOMAINS_RND-1:0] external_subsystem_powergate_iso_o,
     output logic [EXT_DOMAINS_RND-1:0] external_subsystem_rst_no,
-    output logic [EXT_DOMAINS_RND-1:0] external_ram_banks_set_retentive_no,
-    output logic [EXT_DOMAINS_RND-1:0] external_subsystem_clkgate_en_no,
+    output logic [EXT_DOMAINS_RND-1:0] external_ram_banks_set_retentive_o,
 
     output logic [31:0] exit_value_o,
-
-    input logic ext_dma_slot_tx_i,
-    input logic ext_dma_slot_rx_i,
 
     // eXtension interface
     if_xif.cpu_compressed xif_compressed_if,
@@ -122,17 +118,24 @@ module x_heep_system
   import core_v_mini_mcu_pkg::*;
 
   // PM signals
-  logic cpu_subsystem_powergate_switch_n;
-  logic cpu_subsystem_powergate_switch_ack_n;
-  logic peripheral_subsystem_powergate_switch_n;
-  logic peripheral_subsystem_powergate_switch_ack_n;
-  logic [core_v_mini_mcu_pkg::NUM_BANKS-1:0] memory_subsystem_banks_powergate_switch_n;
-  logic [core_v_mini_mcu_pkg::NUM_BANKS-1:0] memory_subsystem_banks_powergate_switch_ack_n;
+  logic cpu_subsystem_powergate_switch;
+  logic cpu_subsystem_powergate_switch_ack;
+  logic cpu_subsystem_powergate_iso;
+  logic cpu_subsystem_rst_n;
+  logic peripheral_subsystem_powergate_switch;
+  logic peripheral_subsystem_powergate_switch_ack;
+  logic peripheral_subsystem_powergate_iso;
+  logic peripheral_subsystem_rst_n;
+  logic [core_v_mini_mcu_pkg::NUM_BANKS-1:0] memory_subsystem_banks_powergate_switch;
+  logic [core_v_mini_mcu_pkg::NUM_BANKS-1:0] memory_subsystem_banks_powergate_switch_ack;
+  logic [core_v_mini_mcu_pkg::NUM_BANKS-1:0] memory_subsystem_banks_powergate_iso;
+  logic [core_v_mini_mcu_pkg::NUM_BANKS-1:0] memory_subsystem_banks_set_retentive;
 
   // PAD controller
   reg_req_t pad_req;
   reg_rsp_t pad_resp;
-  logic [core_v_mini_mcu_pkg::NUM_PAD-1:0][0:0] pad_muxes;
+  logic [core_v_mini_mcu_pkg::NUM_PAD-1:0][7:0] pad_attributes;
+  logic [core_v_mini_mcu_pkg::NUM_PAD-1:0][3:0] pad_muxes;
 
   logic rst_ngen;
 
@@ -565,21 +568,18 @@ module x_heep_system
       .ext_dma_addr_ch0_resp_i,
       .ext_peripheral_slave_req_o,
       .ext_peripheral_slave_resp_i,
-      .cpu_subsystem_powergate_switch_no(cpu_subsystem_powergate_switch_n),
-      .cpu_subsystem_powergate_switch_ack_ni(cpu_subsystem_powergate_switch_ack_n),
-      .peripheral_subsystem_powergate_switch_no(peripheral_subsystem_powergate_switch_n),
-      .peripheral_subsystem_powergate_switch_ack_ni(peripheral_subsystem_powergate_switch_ack_n),
-      .memory_subsystem_banks_powergate_switch_no(memory_subsystem_banks_powergate_switch_n),
-      .memory_subsystem_banks_powergate_switch_ack_ni(memory_subsystem_banks_powergate_switch_ack_n),
-      .external_subsystem_powergate_switch_no,
-      .external_subsystem_powergate_switch_ack_ni,
-      .external_subsystem_powergate_iso_no,
+      .cpu_subsystem_powergate_switch_o(cpu_subsystem_powergate_switch),
+      .cpu_subsystem_powergate_switch_ack_i(cpu_subsystem_powergate_switch_ack),
+      .peripheral_subsystem_powergate_switch_o(peripheral_subsystem_powergate_switch),
+      .peripheral_subsystem_powergate_switch_ack_i(peripheral_subsystem_powergate_switch_ack),
+      .memory_subsystem_banks_powergate_switch_o(memory_subsystem_banks_powergate_switch),
+      .memory_subsystem_banks_powergate_switch_ack_i(memory_subsystem_banks_powergate_switch_ack),
+      .external_subsystem_powergate_switch_o,
+      .external_subsystem_powergate_switch_ack_i,
+      .external_subsystem_powergate_iso_o,
       .external_subsystem_rst_no,
-      .external_ram_banks_set_retentive_no,
-      .external_subsystem_clkgate_en_no,
-      .exit_value_o,
-      .ext_dma_slot_tx_i,
-      .ext_dma_slot_rx_i
+      .external_ram_banks_set_retentive_o,
+      .exit_value_o
   );
 
   pad_ring pad_ring_i (
@@ -791,7 +791,7 @@ module x_heep_system
       .i2c_sda_o(i2c_sda_in_x_muxed),
       .i2c_sda_i(i2c_sda_out_x_muxed),
       .i2c_sda_oe_i(i2c_sda_oe_x_muxed),
-      .pad_attributes_i('0)
+      .pad_attributes_i(pad_attributes)
   );
 
   assign clk_out_x = 1'b0;
@@ -1122,6 +1122,7 @@ module x_heep_system
       .rst_ni(rst_ngen),
       .reg_req_i(pad_req),
       .reg_rsp_o(pad_resp),
+      .pad_attributes_o(pad_attributes),
       .pad_muxes_o(pad_muxes)
   );
 

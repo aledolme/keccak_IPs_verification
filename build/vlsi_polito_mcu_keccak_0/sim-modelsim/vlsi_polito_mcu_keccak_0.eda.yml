@@ -1,9 +1,7 @@
 dependencies:
   ::spiflash:0: []
-  esl_epfl:ip:cv32e40px:0:
-  - pulp-platform.org::fpnew:0
   lowrisc:constants:top_pkg:0: []
-  lowrisc:dv:dv_fcov_macros:0: []
+  lowrisc:ibex:ibex_pkg:0.1: []
   lowrisc:ip:i2c:0.1:
   - lowrisc:constants:top_pkg:0
   - lowrisc:ip:tlul:0.1
@@ -84,33 +82,13 @@ dependencies:
   - lowrisc:prim_abstract:flop_en:0
   - lowrisc:prim:prim_pkg:0.1
   - lowrisc:prim:primgen:0.1
-  lowrisc:prim:lfsr:0.1:
-  - lowrisc:prim:assert:0.1
   lowrisc:prim:prim_pkg:0.1:
   - lowrisc:prim_abstract:prim_pkg:0.1
   - lowrisc:prim:primgen:0.1
   lowrisc:prim:primgen:0.1: []
-  lowrisc:prim:ram_1p:0:
-  - lowrisc:prim_abstract:ram_1p:0
-  - lowrisc:prim:prim_pkg:0.1
-  - lowrisc:prim:primgen:0.1
-  - lowrisc:prim:ram_1p_pkg:0
-  lowrisc:prim:ram_1p_adv:0.1:
-  - lowrisc:prim:assert:0.1
-  - lowrisc:prim:ram_1p:0
-  - lowrisc:prim:secded:0.1
-  - lowrisc:prim:util:0.1
-  lowrisc:prim:ram_1p_pkg:0: []
-  lowrisc:prim:ram_1p_scr:0.1:
-  - lowrisc:prim:all:0.1
-  - lowrisc:prim:assert:0.1
-  - lowrisc:prim:lfsr:0.1
-  - lowrisc:prim:ram_1p_adv:0.1
-  - lowrisc:prim:util:0.1
   lowrisc:prim:secded:0.1: []
   lowrisc:prim:subreg:0: []
   lowrisc:prim:util:0.1: []
-  lowrisc:prim:util_memload:0: []
   lowrisc:prim:xor2:0:
   - lowrisc:prim_abstract:xor2:0
   - lowrisc:prim:prim_pkg:0.1
@@ -131,9 +109,6 @@ dependencies:
   - lowrisc:prim_generic:flop_en:0
   - lowrisc:prim:prim_pkg:0.1
   lowrisc:prim_abstract:prim_pkg:0.1: []
-  lowrisc:prim_abstract:ram_1p:0:
-  - lowrisc:prim_generic:ram_1p:0
-  - lowrisc:prim:prim_pkg:0.1
   lowrisc:prim_abstract:xor2:0:
   - lowrisc:prim_generic:xor2:0
   - lowrisc:prim:prim_pkg:0.1
@@ -143,10 +118,6 @@ dependencies:
   lowrisc:prim_generic:flop:0: []
   lowrisc:prim_generic:flop_2sync:0: []
   lowrisc:prim_generic:flop_en:0: []
-  lowrisc:prim_generic:ram_1p:0:
-  - lowrisc:prim:assert:0.1
-  - lowrisc:prim:ram_1p_pkg:0
-  - lowrisc:prim:util_memload:0
   lowrisc:prim_generic:xor2:0: []
   lowrisc:tlul:adapter_reg:0.1:
   - lowrisc:prim:assert:0.1
@@ -167,14 +138,15 @@ dependencies:
   - lowrisc:prim:assert:0.1
   - lowrisc:prim:secded:0.1
   - lowrisc:tlul:common:0.1
-  openhwgroup.org:ip:cv32e40p:0:
-  - pulp-platform.org::fpnew:0
+  openhwgroup.org:ip:cv32e40p:0: []
   openhwgroup.org:ip:cv32e40x:0: []
+  openhwgroup.org:ip:cve2:0:
+  - lowrisc:ibex:ibex_pkg:0.1
+  - lowrisc:prim:assert:0.1
   openhwgroup.org:ip:soc_ctrl:0:
   - lowrisc:prim:all:0.1
   - pulp-platform.org::register_interface:0
   openhwgroup.org:systems:core-v-mini-mcu:0:
-  - esl_epfl:ip:cv32e40px:0
   - lowrisc:ip:i2c:0.1
   - lowrisc:ip:rv_plic_example:0.1
   - lowrisc:ip:rv_timer:0.1
@@ -182,8 +154,8 @@ dependencies:
   - lowrisc:ip:uart:0.1
   - openhwgroup.org:ip:cv32e40p:0
   - openhwgroup.org:ip:cv32e40x:0
+  - openhwgroup.org:ip:cve2:0
   - openhwgroup.org:ip:soc_ctrl:0
-  - openhwgroup:cve2:cve2_top:0.1
   - pulp-platform.org::cluster_interconnect:0
   - pulp-platform.org::common_cells:1.29.0
   - pulp-platform.org::register_interface:0
@@ -195,27 +167,12 @@ dependencies:
   - x-heep:ip:dma:0
   - x-heep:ip:fast_intr_ctrl:0
   - x-heep:ip:i2s:0
-  - x-heep:ip:obi_fifo:0
   - x-heep:ip:pdm2pcm:0
   - x-heep:ip:power_manager:0
   - x-heep:obi_spimemio:0.1.0:0
   - yosyshq:picorv32_spimemio:0-r1:0
-  openhwgroup:cve2:cve2_core:0.1:
-  - lowrisc:dv:dv_fcov_macros:0
-  - lowrisc:prim:assert:0.1
-  - openhwgroup:cve2:cve2_pkg:0.1
-  openhwgroup:cve2:cve2_pkg:0.1: []
-  openhwgroup:cve2:cve2_top:0.1:
-  - lowrisc:prim:buf:0
-  - lowrisc:prim:clock_mux2:0
-  - lowrisc:prim:flop:0
-  - lowrisc:prim:ram_1p_scr:0.1
-  - openhwgroup:cve2:cve2_core:0.1
-  - openhwgroup:cve2:cve2_pkg:0.1
   pulp-platform.org::cluster_interconnect:0: []
   pulp-platform.org::common_cells:1.29.0: []
-  pulp-platform.org::fpnew:0:
-  - pulp-platform.org::common_cells:1.29.0
   pulp-platform.org::pulpissimo_simjtag:0: []
   pulp-platform.org::register_interface:0: []
   pulp-platform.org::riscv_dbg:0:
@@ -248,7 +205,6 @@ dependencies:
   - pulp-platform.org::register_interface:0
   x-heep:ip:i2s:0:
   - pulp-platform.org::common_cells:1.29.0
-  x-heep:ip:obi_fifo:0: []
   x-heep:ip:pad_control:0:
   - pulp-platform.org::common_cells:1.29.0
   x-heep:ip:pdm2pcm:0:
@@ -266,10 +222,9 @@ files:
 - core: lowrisc:constants:top_pkg:0
   file_type: systemVerilogSource
   name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/top_earlgrey/rtl/top_pkg.sv
-- core: lowrisc:dv:dv_fcov_macros:0
+- core: lowrisc:ibex:ibex_pkg:0.1
   file_type: systemVerilogSource
-  is_include_file: true
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/vendor/lowrisc_ip/dv/sv/dv_utils/dv_fcov_macros.svh
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_pkg.sv
 - core: lowrisc:ip:spi_device_pkg:0.1
   file_type: systemVerilogSource
   name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/spi_device/rtl/spi_device_reg_pkg.sv
@@ -313,9 +268,6 @@ files:
 - core: lowrisc:prim_generic:xor2:0
   file_type: systemVerilogSource
   name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim_generic/rtl/prim_generic_xor2.sv
-- core: lowrisc:prim:ram_1p_pkg:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/rtl/prim_ram_1p_pkg.sv
 - core: lowrisc:prim:secded:0.1
   file_type: systemVerilogSource
   name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/rtl/prim_secded_pkg.sv
@@ -382,10 +334,156 @@ files:
 - core: lowrisc:prim:util:0.1
   file_type: systemVerilogSource
   name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/rtl/prim_util_pkg.sv
-- core: lowrisc:prim:util_memload:0
+- core: openhwgroup.org:ip:cv32e40p:0
   file_type: systemVerilogSource
-  is_include_file: true
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/rtl/prim_util_memload.svh
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/include/cv32e40p_apu_core_pkg.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/include/cv32e40p_fpu_pkg.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/include/cv32e40p_pkg.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_pkg.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_alu.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_alu_div.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_ff_one.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_popcnt.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_compressed_decoder.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_controller.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_cs_registers.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_decoder.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_int_controller.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_ex_stage.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_hwloop_regs.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_id_stage.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_if_stage.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_load_store_unit.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_mult.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_prefetch_buffer.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_prefetch_controller.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_obi_interface.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_aligner.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_sleep_unit.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_core.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_apu_disp.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_fifo.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_fp_wrapper.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_top.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_register_file_ff.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_cast_multi.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_classifier.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_divsqrt_multi.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_fma_multi.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_fma.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_noncomp.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_opgroup_block.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_opgroup_fmt_slice.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_opgroup_multifmt_slice.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_rounding.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpnew/src/fpnew_top.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpu_div_sqrt_mvp/hdl/defs_div_sqrt_mvp.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpu_div_sqrt_mvp/hdl/control_mvp.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpu_div_sqrt_mvp/hdl/div_sqrt_mvp_wrapper.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpu_div_sqrt_mvp/hdl/div_sqrt_top_mvp.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpu_div_sqrt_mvp/hdl/iteration_div_sqrt_mvp.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpu_div_sqrt_mvp/hdl/norm_div_sqrt_mvp.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpu_div_sqrt_mvp/hdl/nrbd_nrsc_mvp.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/vendor/pulp_platform_fpu_div_sqrt_mvp/hdl/preprocess_mvp.sv
+- core: openhwgroup.org:ip:cv32e40p:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/bhv/cv32e40p_sim_clock_gate.sv
 - core: openhwgroup.org:ip:cv32e40x:0
   file_type: systemVerilogSource
   name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40x/rtl/include/cv32e40x_pkg.sv
@@ -524,9 +622,6 @@ files:
 - core: openhwgroup.org:ip:cv32e40x:0
   file_type: systemVerilogSource
   name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40x/bhv/cv32e40x_sim_clock_gate.sv
-- core: openhwgroup:cve2:cve2_pkg:0.1
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_pkg.sv
 - core: pulp-platform.org::cluster_interconnect:0
   file_type: systemVerilogSource
   name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_cluster_interconnect/rtl/tcdm_variable_latency_interconnect/xbar_varlat.sv
@@ -859,9 +954,6 @@ files:
 - core: x-heep::packages:0
   file_type: systemVerilogSource
   name: ../../../hw/vendor/esl_epfl_x_heep/hw/core-v-mini-mcu/include/core_v_mini_mcu_pkg.sv
-- core: x-heep:ip:obi_fifo:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/ip/obi_fifo/obi_fifo.sv
 - core: x-heep:ip:power_manager_pkg:0
   file_type: systemVerilogSource
   name: ../../../hw/vendor/esl_epfl_x_heep/hw/ip/power_manager/rtl/power_manager_reg_pkg.sv
@@ -898,148 +990,79 @@ files:
 - core: lowrisc:prim_generic:clock_mux2:0
   file_type: systemVerilogSource
   name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim_generic/rtl/prim_generic_clock_mux2.sv
-- core: lowrisc:prim_generic:ram_1p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim_generic/rtl/prim_generic_ram_1p.sv
-- core: lowrisc:prim:lfsr:0.1
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/rtl/prim_lfsr.sv
 - core: lowrisc:tlul:headers:0.1
   file_type: systemVerilogSource
   name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/tlul/rtl/tlul_pkg.sv
-- core: openhwgroup:cve2:cve2_core:0.1
+- core: openhwgroup.org:ip:cve2:0
   file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_alu.sv
-- core: openhwgroup:cve2:cve2_core:0.1
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_alu.sv
+- core: openhwgroup.org:ip:cve2:0
   file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_branch_predict.sv
-- core: openhwgroup:cve2:cve2_core:0.1
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_branch_predict.sv
+- core: openhwgroup.org:ip:cve2:0
   file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_compressed_decoder.sv
-- core: openhwgroup:cve2:cve2_core:0.1
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_compressed_decoder.sv
+- core: openhwgroup.org:ip:cve2:0
   file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_controller.sv
-- core: openhwgroup:cve2:cve2_core:0.1
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_controller.sv
+- core: openhwgroup.org:ip:cve2:0
   file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_cs_registers.sv
-- core: openhwgroup:cve2:cve2_core:0.1
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_cs_registers.sv
+- core: openhwgroup.org:ip:cve2:0
   file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_csr.sv
-- core: openhwgroup:cve2:cve2_core:0.1
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_csr.sv
+- core: openhwgroup.org:ip:cve2:0
   file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_counter.sv
-- core: openhwgroup:cve2:cve2_core:0.1
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_counter.sv
+- core: openhwgroup.org:ip:cve2:0
   file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_decoder.sv
-- core: openhwgroup:cve2:cve2_core:0.1
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_decoder.sv
+- core: openhwgroup.org:ip:cve2:0
   file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_ex_block.sv
-- core: openhwgroup:cve2:cve2_core:0.1
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_ex_block.sv
+- core: openhwgroup.org:ip:cve2:0
   file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_fetch_fifo.sv
-- core: openhwgroup:cve2:cve2_core:0.1
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_fetch_fifo.sv
+- core: openhwgroup.org:ip:cve2:0
   file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_id_stage.sv
-- core: openhwgroup:cve2:cve2_core:0.1
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_id_stage.sv
+- core: openhwgroup.org:ip:cve2:0
   file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_if_stage.sv
-- core: openhwgroup:cve2:cve2_core:0.1
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_if_stage.sv
+- core: openhwgroup.org:ip:cve2:0
   file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_load_store_unit.sv
-- core: openhwgroup:cve2:cve2_core:0.1
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_load_store_unit.sv
+- core: openhwgroup.org:ip:cve2:0
   file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_multdiv_fast.sv
-- core: openhwgroup:cve2:cve2_core:0.1
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_multdiv_fast.sv
+- core: openhwgroup.org:ip:cve2:0
   file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_multdiv_slow.sv
-- core: openhwgroup:cve2:cve2_core:0.1
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_multdiv_slow.sv
+- core: openhwgroup.org:ip:cve2:0
   file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_prefetch_buffer.sv
-- core: openhwgroup:cve2:cve2_core:0.1
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_prefetch_buffer.sv
+- core: openhwgroup.org:ip:cve2:0
   file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_pmp.sv
-- core: openhwgroup:cve2:cve2_core:0.1
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_pmp.sv
+- core: openhwgroup.org:ip:cve2:0
   file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_wb.sv
-- core: openhwgroup:cve2:cve2_core:0.1
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_wb_stage.sv
+- core: openhwgroup.org:ip:cve2:0
   file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_core.sv
-- core: openhwgroup:cve2:cve2_core:0.1
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_dummy_instr.sv
+- core: openhwgroup.org:ip:cve2:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_core.sv
+- core: openhwgroup.org:ip:cve2:0
+  file_type: systemVerilogSource
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_sleep_unit.sv
+- core: openhwgroup.org:ip:cve2:0
   file_type: systemVerilogSource
   is_include_file: true
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_pmp_reset_default.svh
-- core: pulp-platform.org::fpnew:0
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/ibex_pmp_reset_default.svh
+- core: openhwgroup.org:ip:cve2:0
   file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/src/fpnew_pkg.sv
-- core: pulp-platform.org::fpnew:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/src/fpnew_cast_multi.sv
-- core: pulp-platform.org::fpnew:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/src/fpnew_classifier.sv
-- core: pulp-platform.org::fpnew:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/src/fpnew_divsqrt_multi.sv
-- core: pulp-platform.org::fpnew:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/src/fpnew_fma_multi.sv
-- core: pulp-platform.org::fpnew:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/src/fpnew_noncomp.sv
-- core: pulp-platform.org::fpnew:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/src/fpnew_opgroup_block.sv
-- core: pulp-platform.org::fpnew:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/src/fpnew_opgroup_fmt_slice.sv
-- core: pulp-platform.org::fpnew:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/src/fpnew_opgroup_multifmt_slice.sv
-- core: pulp-platform.org::fpnew:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/src/fpnew_rounding.sv
-- core: pulp-platform.org::fpnew:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/src/fpnew_top.sv
-- core: pulp-platform.org::fpnew:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/src/fpnew_divsqrt_th_32.sv
-- core: pulp-platform.org::fpnew:0
-  file_type: verilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/clk/rtl/gated_clk_cell.v
-- core: pulp-platform.org::fpnew:0
-  file_type: verilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_ctrl.v
-- core: pulp-platform.org::fpnew:0
-  file_type: verilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_ff1.v
-- core: pulp-platform.org::fpnew:0
-  file_type: verilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_pack_single.v
-- core: pulp-platform.org::fpnew:0
-  file_type: verilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_prepare.v
-- core: pulp-platform.org::fpnew:0
-  file_type: verilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_round_single.v
-- core: pulp-platform.org::fpnew:0
-  file_type: verilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_special.v
-- core: pulp-platform.org::fpnew:0
-  file_type: verilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_srt_single.v
-- core: pulp-platform.org::fpnew:0
-  file_type: verilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_top.v
-- core: pulp-platform.org::fpnew:0
-  file_type: verilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fpu/rtl/pa_fpu_dp.v
-- core: pulp-platform.org::fpnew:0
-  file_type: verilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fpu/rtl/pa_fpu_frbus.v
-- core: pulp-platform.org::fpnew:0
-  file_type: verilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_fpnew/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fpu/rtl/pa_fpu_src_type.v
+  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/bhv/cve2_sim_clock_gate.sv
 - core: pulp-platform.org::riscv_dbg:0
   file_type: systemVerilogSource
   name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_riscv_dbg/debug_rom/debug_rom.sv
@@ -1208,102 +1231,6 @@ files:
 - core: x-heep:obi_spimemio:0.1.0:0
   file_type: systemVerilogSource
   name: ../../../hw/vendor/esl_epfl_x_heep/hw/ip/obi_spimemio/rtl/obi_spimemio.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/include/cv32e40px_apu_core_pkg.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/include/cv32e40px_fpu_pkg.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/include/cv32e40px_pkg.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/include/cv32e40px_core_v_xif_pkg.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_alu.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_alu_div.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_ff_one.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_popcnt.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_compressed_decoder.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_controller.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_cs_registers.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_decoder.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_int_controller.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_ex_stage.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_hwloop_regs.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_id_stage.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_if_stage.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_load_store_unit.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_mult.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_prefetch_buffer.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_prefetch_controller.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_obi_interface.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_aligner.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_sleep_unit.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_core.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_apu_disp.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_x_disp.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_fifo.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_fp_wrapper.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_top.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_register_file_ff.sv
-- core: esl_epfl:ip:cv32e40px:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/bhv/cv32e40px_sim_clock_gate.sv
 - core: lowrisc:prim_abstract:buf:0
   file_type: systemVerilogSource
   name: generated/lowrisc_prim_buf-impl_0/prim_buf.sv
@@ -1319,102 +1246,9 @@ files:
 - core: lowrisc:prim_abstract:flop_en:0
   file_type: systemVerilogSource
   name: generated/lowrisc_prim_flop_en-impl_0/prim_flop_en.sv
-- core: lowrisc:prim_abstract:ram_1p:0
-  file_type: systemVerilogSource
-  name: generated/lowrisc_prim_ram_1p-impl_0/prim_ram_1p.sv
 - core: lowrisc:prim_abstract:xor2:0
   file_type: systemVerilogSource
   name: generated/lowrisc_prim_xor2-impl_0/prim_xor2.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/include/cv32e40p_apu_core_pkg.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/include/cv32e40p_fpu_pkg.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/include/cv32e40p_pkg.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_alu.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_alu_div.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_ff_one.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_popcnt.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_compressed_decoder.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_controller.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_cs_registers.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_decoder.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_int_controller.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_ex_stage.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_hwloop_regs.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_id_stage.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_if_stage.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_load_store_unit.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_mult.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_prefetch_buffer.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_prefetch_controller.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_obi_interface.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_aligner.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_sleep_unit.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_core.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_apu_disp.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_fifo.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_fp_wrapper.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_top.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/rtl/cv32e40p_register_file_ff.sv
-- core: openhwgroup.org:ip:cv32e40p:0
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e40p/bhv/cv32e40p_sim_clock_gate.sv
 - core: lowrisc:prim:alert:0
   file_type: systemVerilogSource
   name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/rtl/prim_alert_pkg.sv
@@ -1424,9 +1258,6 @@ files:
 - core: lowrisc:prim:alert:0
   file_type: systemVerilogSource
   name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/rtl/prim_alert_sender.sv
-- core: lowrisc:prim:ram_1p_adv:0.1
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/rtl/prim_ram_1p_adv.sv
 - core: lowrisc:prim:fifo:0
   file_type: systemVerilogSource
   name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/rtl/prim_fifo_async.sv
@@ -1535,9 +1366,6 @@ files:
 - core: lowrisc:ip:spi_host:1.0
   file_type: systemVerilogSource
   name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan_spi_host/rtl/spi_host.sv
-- core: lowrisc:prim:ram_1p_scr:0.1
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/rtl/prim_ram_1p_scr.sv
 - core: lowrisc:tlul:socket_1n:0.1
   file_type: systemVerilogSource
   name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/tlul/rtl/tlul_err_resp.sv
@@ -1592,15 +1420,6 @@ files:
 - core: lowrisc:tlul:adapter_reg:0.1
   file_type: systemVerilogSource
   name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/tlul/rtl/tlul_adapter_reg.sv
-- core: openhwgroup:cve2:cve2_top:0.1
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_register_file_ff.sv
-- core: openhwgroup:cve2:cve2_top:0.1
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl/cve2_top.sv
-- core: openhwgroup:cve2:cve2_top:0.1
-  file_type: systemVerilogSource
-  name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/bhv/cve2_sim_clock_gate.sv
 - core: lowrisc:ip:i2c:0.1
   file_type: systemVerilogSource
   name: ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/i2c/rtl/i2c_reg_pkg.sv

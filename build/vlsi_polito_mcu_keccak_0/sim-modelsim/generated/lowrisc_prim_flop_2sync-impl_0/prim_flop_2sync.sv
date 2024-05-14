@@ -26,8 +26,8 @@ module prim_flop_2sync
 
   if (1) begin : gen_generic
     prim_generic_flop_2sync #(
-      .ResetValue(ResetValue),
-      .Width(Width)
+      .Width(Width),
+      .ResetValue(ResetValue)
     ) u_impl_generic (
       .*
     );

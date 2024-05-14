@@ -239,8 +239,6 @@ typedef struct {
 
   uint32_t RAM_11_RETENTIVE;                      /*!< Set on retentive mode for the RAM_11 domain*/
 
-  uint32_t EXTERNAL_0_CLK_GATE;                   /*!< Clock-gates the EXTERNAL_0 domain*/
-
   uint32_t POWER_GATE_EXTERNAL_0_ACK;             /*!< Used by the external 0 switch to ack the power manager*/
 
   uint32_t EXTERNAL_0_RESET;                      /*!< Reset the EXTERNAL_0 domain*/

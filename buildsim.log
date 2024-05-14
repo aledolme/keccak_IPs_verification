@@ -2,17 +2,16 @@ WARNING: Unknown item formal in section Target
 WARNING: Unknown item formal in section Target
 WARNING: Unknown item formal in section Target
 INFO: Preparing lowrisc:constants:top_pkg:0
-INFO: Preparing lowrisc:dv:dv_fcov_macros:0
+INFO: Preparing lowrisc:ibex:ibex_pkg:0.1
 INFO: Preparing lowrisc:ip:spi_device_pkg:0.1
 INFO: Preparing lowrisc:prim:assert:0.1
 INFO: Preparing lowrisc:prim:cipher_pkg:0.1
 INFO: Preparing lowrisc:prim:primgen:0.1
-INFO: Preparing lowrisc:prim:ram_1p_pkg:0
 INFO: Preparing lowrisc:prim:secded:0.1
 INFO: Preparing lowrisc:prim:subreg:0
 INFO: Preparing lowrisc:prim:util:0.1
+INFO: Preparing openhwgroup.org:ip:cv32e40p:0
 INFO: Preparing openhwgroup.org:ip:cv32e40x:0
-INFO: Preparing openhwgroup:cve2:cve2_pkg:0.1
 INFO: Preparing pulp-platform.org::cluster_interconnect:0
 INFO: Preparing pulp-platform.org::common_cells:1.29.0
 INFO: Preparing pulp-platform.org::pulpissimo_simjtag:0
@@ -21,18 +20,15 @@ INFO: Preparing pulp-platform.org::riscv_dbg_pkg:0
 INFO: Preparing pulp-platform.org::tech_cells_generic:0
 INFO: Preparing ::spiflash:0
 INFO: Preparing x-heep::packages:0
-INFO: Preparing x-heep:ip:obi_fifo:0
 INFO: Preparing x-heep:ip:power_manager_pkg:0
 INFO: Preparing yosyshq:picorv32_spimemio:0-r1:0
 INFO: Preparing lowrisc:ip:rv_plic_component:0.1
 INFO: Preparing lowrisc:prim:arbiter:0
 INFO: Preparing lowrisc:prim:cipher:0
 INFO: Preparing lowrisc:prim:diff_decode:0
-INFO: Preparing lowrisc:prim:lfsr:0.1
 INFO: Preparing lowrisc:prim:prim_pkg:0.1
 INFO: Preparing lowrisc:tlul:headers:0.1
-INFO: Preparing openhwgroup:cve2:cve2_core:0.1
-INFO: Preparing pulp-platform.org::fpnew:0
+INFO: Preparing openhwgroup.org:ip:cve2:0
 INFO: Preparing pulp-platform.org::riscv_dbg:0
 INFO: Preparing pulp-platform.org:ip:gpio:0
 INFO: Preparing vlsi:polito:keccak:0
@@ -42,29 +38,23 @@ INFO: Preparing x-heep:ip:i2s:0
 INFO: Preparing x-heep:ip:pad_control:0
 INFO: Preparing x-heep:ip:pdm2pcm:0
 INFO: Preparing x-heep:obi_spimemio:0.1.0:0
-INFO: Preparing esl_epfl:ip:cv32e40px:0
 INFO: Preparing lowrisc:prim:buf:0
 INFO: Preparing lowrisc:prim:clock_mux2:0
 INFO: Preparing lowrisc:prim:flop:0
 INFO: Preparing lowrisc:prim:flop_en:0
-INFO: Preparing lowrisc:prim:ram_1p:0
 INFO: Preparing lowrisc:prim:xor2:0
-INFO: Preparing openhwgroup.org:ip:cv32e40p:0
 INFO: Preparing lowrisc:prim:alert:0
 INFO: Preparing lowrisc:prim:flop_2sync:0
-INFO: Preparing lowrisc:prim:ram_1p_adv:0.1
 INFO: Preparing lowrisc:prim:fifo:0
 INFO: Preparing lowrisc:prim:all:0.1
 INFO: Preparing lowrisc:tlul:common:0.1
 INFO: Preparing lowrisc:ip:spi_host:1.0
-INFO: Preparing lowrisc:prim:ram_1p_scr:0.1
 INFO: Preparing lowrisc:tlul:socket_1n:0.1
 INFO: Preparing lowrisc:tlul:trans_intg:0.1
 INFO: Preparing openhwgroup.org:ip:soc_ctrl:0
 INFO: Preparing x-heep:ip:fast_intr_ctrl:0
 INFO: Preparing x-heep:ip:power_manager:0
 INFO: Preparing lowrisc:tlul:adapter_reg:0.1
-INFO: Preparing openhwgroup:cve2:cve2_top:0.1
 INFO: Preparing lowrisc:ip:tlul:0.1
 INFO: Preparing lowrisc:ip:i2c:0.1
 INFO: Preparing lowrisc:ip:rv_plic_example:0.1
@@ -103,13 +93,6 @@ Creating SystemVerilog module for abstract primitive
 Abstract primitive written to /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/build/vlsi_polito_mcu_keccak_0/sim-modelsim/generated/lowrisc_prim_flop_en-impl_0/prim_flop_en.sv
 Creating core file for primitive flop_en.
 Core file written to /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/build/vlsi_polito_mcu_keccak_0/sim-modelsim/generated/lowrisc_prim_flop_en-impl_0/prim_flop_en.core
-INFO: Generating lowrisc:prim:ram_1p-impl:0
-Implementations for primitive ram_1p: generic
-Inspecting generic module /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim_generic/rtl/prim_generic_ram_1p.sv
-Creating SystemVerilog module for abstract primitive
-Abstract primitive written to /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/build/vlsi_polito_mcu_keccak_0/sim-modelsim/generated/lowrisc_prim_ram_1p-impl_0/prim_ram_1p.sv
-Creating core file for primitive ram_1p.
-Core file written to /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/build/vlsi_polito_mcu_keccak_0/sim-modelsim/generated/lowrisc_prim_ram_1p-impl_0/prim_ram_1p.core
 INFO: Generating lowrisc:prim:xor2-impl:0
 Implementations for primitive xor2: generic
 Inspecting generic module /home/alessandra.dolmeta/KECCAK_VER/keccak_IPs_verification/hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim_generic/rtl/prim_generic_xor2.sv

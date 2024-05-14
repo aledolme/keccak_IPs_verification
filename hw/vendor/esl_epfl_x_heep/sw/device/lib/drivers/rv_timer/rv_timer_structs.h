@@ -55,9 +55,7 @@
 
 typedef struct {
 
-  uint32_t CTRL0;                                 /*!< Control register*/
-
-  uint32_t _reserved_0[63];                       /*!< reserved addresses*/
+  uint32_t _reserved_0[64];                       /*!< reserved addresses*/
 
   uint32_t CFG0;                                  /*!< Configuration for Hart 0*/
 
@@ -69,13 +67,7 @@ typedef struct {
 
   uint32_t COMPARE_UPPER0_0;                      /*!< Timer value Upper*/
 
-  uint32_t INTR_ENABLE00;                         /*!< Interrupt Enable*/
-
-  uint32_t INTR_STATE00;                          /*!< Interrupt Status*/
-
-  uint32_t INTR_TEST00;                           /*!< Interrupt test register*/
-
-  uint32_t _reserved_1[56];                       /*!< reserved addresses*/
+  uint32_t _reserved_1[59];                       /*!< reserved addresses*/
 
   uint32_t CFG1;                                  /*!< Configuration for Hart 1*/
 
@@ -86,12 +78,6 @@ typedef struct {
   uint32_t COMPARE_LOWER1_0;                      /*!< Timer value Lower*/
 
   uint32_t COMPARE_UPPER1_0;                      /*!< Timer value Upper*/
-
-  uint32_t INTR_ENABLE10;                         /*!< Interrupt Enable*/
-
-  uint32_t INTR_STATE10;                          /*!< Interrupt Status*/
-
-  uint32_t INTR_TEST10;                           /*!< Interrupt test register*/
 
 } rv_timer;
 
