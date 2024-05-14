@@ -1,0 +1,25 @@
+# vsim -c -sv_lib ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/dv/dpi/uartdpi/uartdpi -sv_lib ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_pulpissimo/rtl/tb/remote_bitbang/librbs -voptargs="+acc" "+c" "+firmware=../../../sw/applications/keccak_test/main.hex" -do "run -all; quit -code [expr [coverage attribute -name TESTSTATUS -concise] >= 2 ? [coverage attribute -name TESTSTATUS -concise] : 0]; exit" tb_top -gJTAG_DPI=0 -gCOREV_PULP=0 
+# Start time: 11:33:07 on May 14,2024
+# Loading /tmp/alessandra.dolmeta@lugdush_dpi_130360/linux_x86_64_gcc-7.4.0/export_tramp.so
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error (suppressible): ../../../tb/tb_util.svh(103): (vopt-7063) Failed to find 'ram_i' in hierarchical name 'keccak_x_heep_top_i.x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[0].ram_i.tc_ram_i.sram'.
+#         Region: tb_top.testharness_i
+# ** Error (suppressible): ../../../tb/tb_util.svh(121): (vopt-7063) Failed to find 'ram_i' in hierarchical name 'keccak_x_heep_top_i.x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_i.gen_sram[1].ram_i.tc_ram_i.sram'.
+#         Region: tb_top.testharness_i
+# ** Error (suppressible): ../../../tb/testharness.sv(127): (vopt-7063) Failed to find 'cpu_subsystem_powergate_switch' in hierarchical name 'keccak_x_heep_top_i.x_heep_system_i.cpu_subsystem_powergate_switch'.
+#         Region: tb_top.testharness_i
+# ** Error (suppressible): ../../../tb/testharness.sv(128): (vopt-7063) Failed to find 'peripheral_subsystem_powergate_switch' in hierarchical name 'keccak_x_heep_top_i.x_heep_system_i.peripheral_subsystem_powergate_switch'.
+#         Region: tb_top.testharness_i
+# ** Error (suppressible): ../../../tb/testharness.sv(129): (vopt-7063) Failed to find 'memory_subsystem_banks_powergate_switch' in hierarchical name 'keccak_x_heep_top_i.x_heep_system_i.memory_subsystem_banks_powergate_switch'.
+#         Region: tb_top.testharness_i
+# ** Error (suppressible): ../../../tb/testharness.sv(146): (vopt-7063) Failed to find 'cpu_subsystem_powergate_switch_ack_i' in hierarchical name 'keccak_x_heep_top_i.x_heep_system_i.core_v_mini_mcu_i.cpu_subsystem_powergate_switch_ack_i'.
+#         Region: tb_top.testharness_i
+# ** Error (suppressible): ../../../tb/testharness.sv(147): (vopt-7063) Failed to find 'peripheral_subsystem_powergate_switch_ack_i' in hierarchical name 'keccak_x_heep_top_i.x_heep_system_i.core_v_mini_mcu_i.peripheral_subsystem_powergate_switch_ack_i'.
+#         Region: tb_top.testharness_i
+# ** Error (suppressible): ../../../tb/testharness.sv(148): (vopt-7063) Failed to find 'memory_subsystem_banks_powergate_switch_ack_i' in hierarchical name 'keccak_x_heep_top_i.x_heep_system_i.core_v_mini_mcu_i.memory_subsystem_banks_powergate_switch_ack_i'.
+#         Region: tb_top.testharness_i
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=8, Warnings=0.
+# Error loading design
+# End time: 11:33:08 on May 14,2024, Elapsed time: 0:00:01
+# Errors: 8, Warnings: 0
