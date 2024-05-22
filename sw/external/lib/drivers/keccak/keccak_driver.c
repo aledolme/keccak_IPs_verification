@@ -135,12 +135,7 @@ void KeccakF1600_StatePermute(uint32_t* Din, uint32_t* Dout)
  //printf("    TESTING SINGLE MODE WITH KECCAK  ");
  //printf("\n\n=====================================\n\n");
  //
-  res = dma_validate_transaction( &trans, DMA_ENABLE_REALIGN, DMA_PERFORM_CHECKS_INTEGRITY );
-  //printf("tran: %u \t%s\n", res, res == DMA_CONFIG_OK ?  "Ok!" : "Error!");
-  res = dma_load_transaction(&trans);
-  //printf("load: %u \t%s\n", res, res == DMA_CONFIG_OK ?  "Ok!" : "Error!");
-  res = dma_launch(&trans);
-  //printf("laun: %u \t%s\n", res, res == DMA_CONFIG_OK ?  "Ok!" : "Error!");
+  res = dma_load_transaction_keccak(&trans);
 
   while( ! dma_is_ready()) {
       // disable_interrupts
@@ -182,16 +177,7 @@ void KeccakF1600_StatePermute(uint32_t* Din, uint32_t* Dout)
   tgt_src.ptr = ext_addr_4B_PTR;
   tgt_dst.ptr = Dout;
 
-  //printf("dout_dst_ptr: %04x, keccak_dout_ptr : %04x\n", Dout_4B, ext_addr_4B_PTR);
-
-  // Second DMA transaction consist on reading Dout from Keccak register file
-
-  res = dma_validate_transaction( &trans, DMA_ENABLE_REALIGN, DMA_PERFORM_CHECKS_INTEGRITY );
-  //printf("tran: %u \t%s\n", res, res == DMA_CONFIG_OK ?  "Ok!" : "Error!");
-  res = dma_load_transaction(&trans);
-  //printf("load: %u \t%s\n", res, res == DMA_CONFIG_OK ?  "Ok!" : "Error!");
-  res = dma_launch(&trans);
-  //printf("laun: %u \t%s\n", res, res == DMA_CONFIG_OK ?  "Ok!" : "Error!");
+  res = dma_load_transaction_keccak(&trans);
 
   while( ! dma_is_ready()) {
       // disable_interrupts

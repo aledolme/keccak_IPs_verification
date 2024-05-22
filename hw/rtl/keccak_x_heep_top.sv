@@ -210,11 +210,12 @@ module keccak_x_heep_top
       .spi2_sd_3_io(gpio_io[29]),
       .i2c_scl_io(gpio_io[31]),
       .i2c_sda_io(gpio_io[30]),
-      .external_subsystem_powergate_switch_o,
-      .external_subsystem_powergate_switch_ack_i,
-      .external_subsystem_powergate_iso_o,
-      .external_subsystem_rst_no(external_subsystem_rst_n),
-      .external_ram_banks_set_retentive_o(external_ram_banks_set_retentive),
+      .external_subsystem_powergate_switch_no(external_subsystem_powergate_switch_o),
+      .external_subsystem_powergate_switch_ack_ni(external_subsystem_powergate_switch_ack_i),
+      .external_subsystem_powergate_iso_no(external_subsystem_powergate_iso_o),
+      .external_subsystem_rst_no(external_subsystem_rst_no),
+      .external_ram_banks_set_retentive_no(external_ram_banks_set_retentive_o),
+      .external_subsystem_clkgate_en_no(),
       .intr_vector_ext_i(ext_intr_vector),
       .xif_compressed_if(ext_if),
       .xif_issue_if(ext_if),
@@ -223,6 +224,7 @@ module keccak_x_heep_top
       .xif_mem_result_if(ext_if),
       .xif_result_if(ext_if)
   );
+
 
   // The external bus connects the external peripherals among them and to
   // the corresponding X-HEEP slave port (to the internal system bus).

@@ -42,6 +42,12 @@ endif
 vendor-update-heep: clean-lock
 	@echo "### Updating vendored IPs..."
 	find hw/vendor -maxdepth 1 -type f -name "esl_*.vendor.hjson" -exec python3 util/vendor.py -vU '{}' \;
+esl_epfl_x_heep-sync:
+	@echo "### Modifiying esl_epfl_x_heep repository..."
+	rsync -a config/rv_plic.c hw/vendor/esl_epfl_x_heep/sw/device/lib/drivers/rv_plic/rv_plic.c
+	rsync -a config/rv_plic.h hw/vendor/esl_epfl_x_heep/sw/device/lib/drivers/rv_plic/rv_plic.h
+	rsync -a config/dma.c hw/vendor/esl_epfl_x_heep/sw/device/lib/drivers/dma/dma.c
+	rsync -a config/dma.h hw/vendor/esl_epfl_x_heep/sw/device/lib/drivers/dma/dma.h
 
 
 
@@ -55,37 +61,6 @@ app-helloworld:
 
 app-keccak:
 	$(MAKE) -C sw applications/keccak_test/main.hex  TARGET=$(TARGET) USE_DMA=$(USE_DMA)
-
-########################## KYBER-512 ##########################
-app-kyber512-keygen: 
-	$(MAKE) -C sw applications/kyber512/keygen/keygen.hex TARGET=$(TARGET) SEC_LEVEL=512
-
-app-kyber512-enc: 
-	$(MAKE) -C sw applications/kyber512/enc/enc.hex TARGET=$(TARGET)  SEC_LEVEL=512
-
-app-kyber512-dec: 
-	$(MAKE) -C sw applications/kyber512/dec/dec.hex TARGET=$(TARGET)  SEC_LEVEL=512
-
-########################## KYBER-768 ##########################
-app-kyber768-keygen: 
-	$(MAKE) -C sw applications/kyber768/keygen/keygen.hex TARGET=$(TARGET)  SEC_LEVEL=768
-
-app-kyber768-enc: 
-	$(MAKE) -C sw applications/kyber768/enc/enc.hex TARGET=$(TARGET)  SEC_LEVEL=768
-
-app-kyber768-dec: 
-	$(MAKE) -C sw applications/kyber768/dec/dec.hex TARGET=$(TARGET)  SEC_LEVEL=768
-
-
-########################## KYBER-1024 ##########################
-app-kyber1024-keygen: 
-	$(MAKE) -C sw applications/kyber1024/keygen/keygen.hex TARGET=$(TARGET) SEC_LEVEL=1024
-
-app-kyber1024-enc: 
-	$(MAKE) -C sw applications/kyber1024/enc/enc.hex TARGET=$(TARGET)  SEC_LEVEL=1024
-
-app-kyber1024-dec: 
-	$(MAKE) -C sw applications/kyber1024/dec/dec.hex TARGET=$(TARGET)  SEC_LEVEL=1024
 
 # Simulation
 
