@@ -8,12 +8,27 @@ name: vlsi:polito:mcu_keccak
 description: Integration framework of keccak in MCU
 
 filesets:
+  keccak_xif_vhdl:
+    files:
+    - hw/keccak_XIF/keccak/keccak_datapath.vhd
+    - hw/keccak_XIF/keccak/keccak_globals.vhd
+    - hw/keccak_XIF/keccak/keccak_round_constants_gen.vhd 
+    - hw/keccak_XIF/keccak/keccak.vhd
+    - hw/keccak_XIF/keccak/keccak_round.vhd
+    file_type: vhdlSource    
   keccak_x_heep:
     depend:
     - x-heep::packages
     - openhwgroup.org:systems:core-v-mini-mcu
     - vlsi:polito:keccak
     files:
+    - hw/keccak_XIF/include/keccak_xif_pkg.sv
+    - hw/keccak_XIF/keccak/keccak_cu.sv
+    - hw/keccak_XIF/xif_controller.sv
+    - hw/keccak_XIF/register_keccak.sv 
+    - hw/keccak_XIF/keccak_xif.sv 
+    - hw/keccak_XIF/keccak_xif_wrapper.sv
+    - hw/keccak_XIF/keccak_xif_top.sv
     - hw/rtl/keccak_x_heep_pkg.sv
     - hw/rtl/keccak_x_heep_top.sv
     file_type: systemVerilogSource
@@ -170,6 +185,7 @@ scripts:
 targets:
   default: &default_target
     filesets:
+    - keccak_xif_vhdl
     - keccak_x_heep
     toplevel: [keccak_x_heep_top]
 

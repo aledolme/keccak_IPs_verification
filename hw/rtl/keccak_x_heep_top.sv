@@ -119,15 +119,18 @@ module keccak_x_heep_top
     ext_intr_vector[0] = keccak_intr;
   end
 
-  keccak_top keccak_top_i (
-      .clk_i,
-      .rst_ni,
-      .slave_req_i(ext_slave_req),
-      .slave_resp_o(ext_slave_resp),
-      .reg_req_i(ext_periph_slave_req),
-      .reg_rsp_o(ext_periph_slave_resp),
-      .keccak_intr_o(keccak_intr)
-  );
+
+    keccak_xif_wrapper keccak_xif_wrapper_i(
+        .clk_i (clk_i),
+        .rst_ni(rst_ni),
+        // eXtension interface
+        .xif_compressed_if(ext_if),
+        .xif_issue_if(ext_if),
+        .xif_commit_if(ext_if),
+        .xif_mem_if(ext_if),
+        .xif_mem_result_if(ext_if),
+        .xif_result_if(ext_if)
+    );
 
   x_heep_system #(
       .COREV_PULP(COREV_PULP),

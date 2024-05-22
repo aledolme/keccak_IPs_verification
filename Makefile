@@ -50,7 +50,6 @@ esl_epfl_x_heep-sync:
 	rsync -a config/dma.h hw/vendor/esl_epfl_x_heep/sw/device/lib/drivers/dma/dma.h
 
 
-
 mcu-gen:
 	$(MAKE) -f $(XHEEP_MAKE) $(MAKECMDGOALS) CPU=cv32e40px BUS=NtoM MEMORY_BANKS=12 EXTERNAL_DOMAINS=$(EXTERNAL_DOMAINS)
 
@@ -59,8 +58,9 @@ mcu-gen:
 app-helloworld:
 	$(MAKE) -C sw x_heep_applications/hello_world/hello_world.hex  TARGET=$(TARGET)
 
-app-keccak:
-	$(MAKE) -C sw applications/keccak_test/main.hex  TARGET=$(TARGET) USE_DMA=$(USE_DMA)
+app-keccak-xif:
+	$(MAKE) -C sw applications/keccak_test_xif/keccak_xif.hex  TARGET=$(TARGET) USE_DMA=$(USE_DMA)
+
 
 # Simulation
 
@@ -82,15 +82,15 @@ run-helloworld-verilator: verilator-sim app-helloworld
 	cat uart0.log; \
 	cd ../../..;
 
-run-keccak-questasim: questasim-sim app-keccak 
+run-keccak-xif-questasim: questasim-sim app-keccak-xif
 	cd ./build/vlsi_polito_mcu_keccak_0/sim-modelsim; \
-	make run PLUSARGS="c firmware=../../../sw/applications/keccak_test/main.hex"; \
+	make run PLUSARGS="c firmware=../../../sw/applications/keccak_test_xif/keccak_xif.hex"; \
 	cat uart0.log; \
 	cd ../../..;
 
-run-keccak-questasim-gui: questasim-sim app-keccak
+run-keccak-xif-questasim-gui: questasim-sim app-keccak-xif
 	cd ./build/vlsi_polito_mcu_keccak_0/sim-modelsim; \
-	make run-gui PLUSARGS="c firmware=../../../sw/applications/keccak_test/main.hex"; \
+	make run-gui PLUSARGS="c firmware=../../../sw/applications/keccak_test_xif/keccak_xif.hex"; \
 	cat uart0.log; \
 	cd ../../..;
 
