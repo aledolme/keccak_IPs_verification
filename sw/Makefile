@@ -54,18 +54,8 @@ INC_FOLDERS                += $(sort $(dir $(wildcard device/lib/runtime/)))
 INC_FOLDERS                += $(sort $(dir $(wildcard device/lib/crt/)))
 INC_FOLDERS                += $(sort $(dir $(wildcard external/lib/drivers/*/)))
 INC_FOLDERS                += $(sort $(dir $(wildcard external/lib/runtime/)))
-# source files of kyber application
-$(info "Compiling kyber with security leve $(SEC_LEVEL)")
-ifeq ($(SEC_LEVEL), 512)
-	LIB_DRIVERS                += $(wildcard applications/kyber512/drivers/*.c)
-	INC_FOLDERS                += $(sort $(dir $(wildcard applicatons/kyber512/include/*)))
-else ifeq ($(SEC_LEVEL), 768)
-	LIB_DRIVERS                += $(wildcard applications/kyber768/drivers/*.c)
-	INC_FOLDERS                += $(sort $(dir $(wildcard applicatons/kyber768/include/*)))
-else
-	LIB_DRIVERS                += $(wildcard applications/kyber1024/drivers/*.c)
-	INC_FOLDERS                += $(sort $(dir $(wildcard applicatons/kyber1024/include/*)))
-endif
+
+
 
 
 

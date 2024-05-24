@@ -108,7 +108,7 @@ module keccak_x_heep_top
   logic [core_v_mini_mcu_pkg::EXTERNAL_DOMAINS-1:0] external_ram_banks_set_retentive;
 
   // eXtension Interface
-   if_xif #() ext_if ();
+  cv32e40px_if_xif #() ext_if ();
   
   always_comb begin
     // All interrupt lines set to zero by default

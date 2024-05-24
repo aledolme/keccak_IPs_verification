@@ -14,6 +14,8 @@ filesets:
     - openhwgroup.org:systems:core-v-mini-mcu
     - vlsi:polito:keccak
     files:
+    - hw/rtl/cv32e40px_if_xif.sv
+    - hw/rtl/cv32e40px_core_v_xif_pkg.sv
     - hw/rtl/keccak_x_heep_pkg.sv
     - hw/rtl/keccak_x_heep_top.sv
     file_type: systemVerilogSource
