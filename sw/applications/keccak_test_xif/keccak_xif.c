@@ -9,6 +9,7 @@
 #include "shake_ds.h"
 #include "fips202.h"
 #include "core_v_mini_mcu.h"
+#include "csr.h"
 
 #define SHAKE256_512_BYTES                    64
 #define PARAM_K                               16
@@ -21,6 +22,7 @@ int main() {
     shake256incctx shake256state;
     uint64_t m[2] = { 0x39cc3918b75cca7f, 0x742d1190d017f7b1};
     uint8_t theta[SHAKE256_512_BYTES] = {0};
+    unsigned int cycles;
 
     shake256incctx shake256state2;
     uint8_t theta2[SHAKE256_512_BYTES] = {0};
@@ -34,7 +36,11 @@ int main() {
 
 
     printf("Test started!\n");
+    CSR_CLEAR_BITS(CSR_REG_MCOUNTINHIBIT, 0x1);
+    CSR_WRITE(CSR_REG_MCYCLE, 0);
     shake256_512_ds(&shake256state, theta, (uint8_t*) m, VEC_K_SIZE_BYTES, G_FCT_DOMAIN);
+    CSR_READ(CSR_REG_MCYCLE, &cycles);
+    printf("Keypair done!\nNumber of clock cycles : %d\n", cycles);
 
     printf("Checking theta after shake256_512_ds...\n");
     for (int i = 0; i < SHAKE256_512_BYTES; ++i) {

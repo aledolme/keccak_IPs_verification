@@ -12,7 +12,7 @@ module cpu_subsystem
     parameter ZFINX = 0,  // Float-in-General Purpose registers
     parameter NUM_MHPMCOUNTERS = 1,
     parameter DM_HALTADDRESS = '0,
-    parameter X_EXT = 0,  // eXtension interface in cv32e40x
+    parameter X_EXT = 1,  // eXtension interface in cv32e40x
     parameter core_v_mini_mcu_pkg::cpu_type_e CPU_TYPE = core_v_mini_mcu_pkg::CpuType
 ) (
     // Clock and Reset
@@ -28,12 +28,12 @@ module cpu_subsystem
     input  obi_resp_t core_data_resp_i,
 
     // eXtension interface
-    if_xif.cpu_compressed xif_compressed_if,
-    if_xif.cpu_issue      xif_issue_if,
-    if_xif.cpu_commit     xif_commit_if,
-    if_xif.cpu_mem        xif_mem_if,
-    if_xif.cpu_mem_result xif_mem_result_if,
-    if_xif.cpu_result     xif_result_if,
+    cv32e40px_if_xif.cpu_compressed xif_compressed_if,
+    cv32e40px_if_xif.cpu_issue      xif_issue_if,
+    cv32e40px_if_xif.cpu_commit     xif_commit_if,
+    cv32e40px_if_xif.cpu_mem        xif_mem_if,
+    cv32e40px_if_xif.cpu_mem_result xif_mem_result_if,
+    cv32e40px_if_xif.cpu_result     xif_result_if,
 
     // Interrupt inputs
     input  logic [31:0] irq_i,      // CLINT interrupts + CLINT extension interrupts

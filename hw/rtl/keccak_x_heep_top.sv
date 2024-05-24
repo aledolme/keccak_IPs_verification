@@ -11,6 +11,7 @@
 module keccak_x_heep_top 
   import obi_pkg::*;
   import reg_pkg::*;
+  import cv32e40px_pkg::*;
 #(
     parameter COREV_PULP = 0,
     parameter FPU        = 0,
@@ -108,7 +109,19 @@ module keccak_x_heep_top
   logic [core_v_mini_mcu_pkg::EXTERNAL_DOMAINS-1:0] external_ram_banks_set_retentive;
 
   // eXtension Interface
-   if_xif #() ext_if ();
+  cv32e40px_if_xif #() ext_if();
+
+    keccak_xif_wrapper keccak_xif_wrapper_i(
+      .clk_i (clk_i),
+      .rst_ni(rst_ni),
+      // eXtension interface
+      .xif_compressed_if(ext_if),
+      .xif_issue_if(ext_if),
+      .xif_commit_if(ext_if),
+      .xif_mem_if(ext_if),
+      .xif_mem_result_if(ext_if),
+      .xif_result_if(ext_if)
+    );
   
   always_comb begin
     // All interrupt lines set to zero by default
@@ -120,17 +133,7 @@ module keccak_x_heep_top
   end
 
 
-    keccak_xif_wrapper keccak_xif_wrapper_i(
-        .clk_i (clk_i),
-        .rst_ni(rst_ni),
-        // eXtension interface
-        .xif_compressed_if(ext_if),
-        .xif_issue_if(ext_if),
-        .xif_commit_if(ext_if),
-        .xif_mem_if(ext_if),
-        .xif_mem_result_if(ext_if),
-        .xif_result_if(ext_if)
-    );
+
 
   x_heep_system #(
       .COREV_PULP(COREV_PULP),

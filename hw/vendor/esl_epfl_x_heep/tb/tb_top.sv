@@ -7,7 +7,7 @@ module tb_top #(
     parameter FPU                         = 0,
     parameter ZFINX                       = 0,
     parameter JTAG_DPI                    = 0,
-    parameter X_EXT                       = 0,
+    parameter X_EXT                       = 1,
     parameter USE_EXTERNAL_DEVICE_EXAMPLE = 1
 );
 

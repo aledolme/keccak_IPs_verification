@@ -206,7 +206,7 @@ parameters:
     paramtype: vlogparam
     description: |
       Enables CORE-V-XIF interface for the CV32E40X and CV32E40PX cores. Admitted values: 1|0.
-    default: 0
+    default: 1
   USE_EXTERNAL_DEVICE_EXAMPLE:
     datatype: int
     paramtype: vlogparam
@@ -385,7 +385,7 @@ targets:
     - COREV_PULP
     - FPU
     - JTAG_DPI
-    - X_EXT
+    - X_EXT=true
     - USE_EXTERNAL_DEVICE_EXAMPLE
     - USE_UPF
     - REMOVE_OBI_FIFO
@@ -498,7 +498,7 @@ targets:
     parameters:
       - COREV_PULP
       - FPU
-      - X_EXT
+      - X_EXT=true
       - SYNTHESIS=true
       - VERILATOR=true
       - REMOVE_OBI_FIFO
