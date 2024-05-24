@@ -111,7 +111,7 @@ module keccak_x_heep_top
   // eXtension Interface
   cv32e40px_if_xif #() ext_if();
 
-    keccak_xif_wrapper keccak_xif_wrapper_i(
+  keccak_xif_wrapper keccak_xif_wrapper_i(
       .clk_i (clk_i),
       .rst_ni(rst_ni),
       // eXtension interface

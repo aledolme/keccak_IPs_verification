@@ -317,7 +317,7 @@ targets:
     - COREV_PULP
     - FPU
     - JTAG_DPI
-    - X_EXT
+    - X_EXT=true
     - USE_EXTERNAL_DEVICE_EXAMPLE
     - USE_UPF
     - REMOVE_OBI_FIFO
@@ -416,7 +416,7 @@ targets:
     parameters:
     - COREV_PULP
     - FPU
-    - X_EXT
+    - X_EXT=true
     - SYNTHESIS=true
     - REMOVE_OBI_FIFO
     - FPGA_NEXYS=true
@@ -437,7 +437,7 @@ targets:
     parameters:
     - COREV_PULP
     - FPU
-    - X_EXT
+    - X_EXT=true
     - SYNTHESIS=true
     - REMOVE_OBI_FIFO
     tools:
@@ -457,7 +457,7 @@ targets:
     parameters:
     - COREV_PULP
     - FPU
-    - X_EXT
+    - X_EXT=true
     - SYNTHESIS=true
     - REMOVE_OBI_FIFO
     - FPGA_ZCU104=true
@@ -475,7 +475,7 @@ targets:
     parameters:
     - PRIM_DEFAULT_IMPL=prim_pkg::your_target_technology
     - COREV_PULP
-    - X_EXT
+    - X_EXT=true
     - FPU
     - SYNTHESIS=true
     - REMOVE_OBI_FIFO

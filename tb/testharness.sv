@@ -10,7 +10,7 @@ module testharness #(
     parameter COREV_PULP                  = 0,
     parameter FPU                         = 0,
     parameter ZFINX                       = 0,
-    parameter X_EXT                       = 0,         // eXtension interface in cv32e40x
+    parameter X_EXT                       = 1,         // eXtension interface in cv32e40x
     parameter JTAG_DPI                    = 0,
     parameter USE_EXTERNAL_DEVICE_EXAMPLE = 1,
     parameter CLK_FREQUENCY               = 'd100_000  //KHz

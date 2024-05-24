@@ -48,7 +48,8 @@ esl_epfl_x_heep-sync:
 	rsync -a config/rv_plic.h hw/vendor/esl_epfl_x_heep/sw/device/lib/drivers/rv_plic/rv_plic.h
 	rsync -a config/dma.c hw/vendor/esl_epfl_x_heep/sw/device/lib/drivers/dma/dma.c
 	rsync -a config/dma.h hw/vendor/esl_epfl_x_heep/sw/device/lib/drivers/dma/dma.h
-
+	rsync -a config/core_v_mini_mcu.sv hw/vendor/esl_epfl_x_heep/hw/system/x_heep_system.sv
+	rsync -a config/x_heep_system.sv hw/vendor/esl_epfl_x_heep/hw/core-v-mini-mcu/core_v_mini_mcu.sv
 
 mcu-gen:
 	$(MAKE) -f $(XHEEP_MAKE) $(MAKECMDGOALS) CPU=cv32e40px BUS=NtoM MEMORY_BANKS=12 EXTERNAL_DOMAINS=$(EXTERNAL_DOMAINS)

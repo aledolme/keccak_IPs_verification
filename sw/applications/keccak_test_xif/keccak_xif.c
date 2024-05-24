@@ -40,7 +40,7 @@ int main() {
     CSR_WRITE(CSR_REG_MCYCLE, 0);
     shake256_512_ds(&shake256state, theta, (uint8_t*) m, VEC_K_SIZE_BYTES, G_FCT_DOMAIN);
     CSR_READ(CSR_REG_MCYCLE, &cycles);
-    printf("Keypair done!\nNumber of clock cycles : %d\n", cycles);
+    printf("Number of clock cycles : %d\n", cycles);
 
     printf("Checking theta after shake256_512_ds...\n");
     for (int i = 0; i < SHAKE256_512_BYTES; ++i) {
