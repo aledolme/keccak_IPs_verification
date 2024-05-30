@@ -24,10 +24,10 @@ static void KeccakF1600_StatePermute(uint64_t *state) {
     uint32_t Abe_low;
     uint32_t Abe_high;
 
-    unsigned int cycles;
+    //unsigned int cycles;
 
-    CSR_CLEAR_BITS(CSR_REG_MCOUNTINHIBIT, 0x1);
-    CSR_WRITE(CSR_REG_MCYCLE, 0);
+    //CSR_CLEAR_BITS(CSR_REG_MCOUNTINHIBIT, 0x1);
+    //CSR_WRITE(CSR_REG_MCYCLE, 0);
 
     asm volatile (".insn r 0x4b, 0x004, 0, x0, %[rs1], %[rs2], %[i]\r\n": : [rs1] "r" (state[0] ), [rs2] "r" ((state[0] >> 32) ), [i] "r" (0): );
     asm volatile (".insn r 0x4b, 0x004, 0, x0, %[rs1], %[rs2], %[i]\r\n": : [rs1] "r" (state[1] ), [rs2] "r" ((state[1] >> 32) ), [i] "r" (2): );
@@ -88,8 +88,8 @@ static void KeccakF1600_StatePermute(uint64_t *state) {
         state[i/2] = ((uint64_t)Abe_high << 32) | Abe_low;
     }
 
-    CSR_READ(CSR_REG_MCYCLE, &cycles);
-    printf("Number of clock cycles : %d\n", cycles);
+    //CSR_READ(CSR_REG_MCYCLE, &cycles);
+    //printf("Number of clock cycles : %d\n", cycles);
 
 }
 
