@@ -107,6 +107,7 @@ module cv32e40px_x_disp
   logic x_if_not_ready;
   logic x_if_memory_instr;
   logic illegal_forwarding_prevention;
+  logic x_issue_illegal;
 
   // issue interface
   assign x_issue_valid_o = x_illegal_insn_dec_i & ~branch_or_jump_i & ~instr_offloaded_q & instr_valid_i & ~illegal_forwarding_prevention;
@@ -233,6 +234,8 @@ module cv32e40px_x_disp
     end
   end
 
+  assign x_issue_illegal = x_illegal_insn_dec_i & ~instr_offloaded_q & instr_valid_i;
+
   // status signal that indicates if an instruction has already been offloaded
   always_comb begin
     instr_offloaded_d = instr_offloaded_q;
@@ -246,7 +249,7 @@ module cv32e40px_x_disp
   // illegal instruction assertion
   always_comb begin
     x_illegal_insn_o = 1'b0;
-    if (x_issue_valid_o & x_issue_ready_i & ~x_issue_resp_accept_i) begin
+    if (x_issue_illegal & x_issue_ready_i & ~x_issue_resp_accept_i) begin
       x_illegal_insn_o = 1'b1;
     end
   end
