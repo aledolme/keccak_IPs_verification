@@ -1,0 +1,36 @@
+ 
+                             Library Compiler (TM)
+                                 DesignWare (R)
+
+               Version R-2020.09-SP2 for linux64 - Nov 25, 2020 
+
+                    Copyright (c) 1988 - 2020 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Initializing...
+lc_shell> read_lib SHKA65_256X20X1CM4_tt1p2v25c.lib
+Reading '/home/alessandra.dolmeta/ATHOS-PQC/SYNTH/athos_top/scripts/synthesis/lib/SHKA65_256X20X1CM4_tt1p2v25c.lib' ...
+Warning: Line 42, The default_operating_conditions is not defined. operating_conditions 'TCCOM' is set
+        as the default_operating_conditions. (LBDB-663)
+Warning: Line 42, The 'internal_power_calculation' attribute in char_config group is required for NLPM library. 
+        No default can be applied to this attribute. (LBDB-366)
+Technology library 'SHKA65_256X20X1CM4_tt1p2v25c' read successfully
+1
+lc_shell> write_lib library -format db -output SHKA65_256X20X1CM4_tt1p2v25c.db
+Warning: The 'library' library has not been read in yet. (UIL-3)
+0
+lc_shell> write_lib SHKA65_256X20X1CM4_tt1p2v25c.lib  -format db -output SHKA65_256X20X1CM4_tt1p2v25c.db
+Warning: The 'SHKA65_256X20X1CM4_tt1p2v25c.lib' library has not been read in yet. (UIL-3)
+0
+lc_shell> write_lib SHKA65_256X20X1CM4_tt1p2v25c  -format db -output SHKA65_256X20X1CM4_tt1p2v25c.db
+Wrote the 'SHKA65_256X20X1CM4_tt1p2v25c' library to '/home/alessandra.dolmeta/ATHOS-PQC/SYNTH/athos_top/scripts/synthesis/lib/SHKA65_256X20X1CM4_tt1p2v25c.db' successfully
+1
+lc_shell> quit
+Maximum memory usage for this session: 78.68 MB
+CPU usage for this session:      1 seconds (  0.00 hours)
+Elapsed time for this session:    448 seconds (  0.12 hours)
+Thank you for using Library Compiler.
+

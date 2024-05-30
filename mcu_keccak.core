@@ -44,6 +44,14 @@ filesets:
     - hw/vendor/esl_epfl_x_heep/hw/system/pad_ring.sv
     file_type: systemVerilogSource
 
+  ip-asic:
+    depend:
+    - technology::prim_mytech
+    - x-heep::packages
+    - pulp-platform.org::common_cells
+    - openhwgroup.org:systems:core-v-mini-mcu
+    - x-heep:ip:pad_control
+
   tb-harness_x_heep:
     files:
     - tb/tb_util.svh: {is_include_file: true}
@@ -138,24 +146,48 @@ parameters:
   COREV_PULP:
     datatype: int
     paramtype: vlogparam
+    description: |
+      Enables COREV_PULP custom RISC-V extension on the CV32E40P core. Admitted values: 1|0.
     default: 0
   FPU:
     datatype: int
     paramtype: vlogparam
+    description: |
+      Enables RV32F RISC-V extension on the CV32E40P core. Admitted values: 1|0.
     default: 0
   JTAG_DPI:
     datatype: int
     paramtype: vlogparam
+    description: |
+      Enables testbench JTAG DIPs. Admitted values: 1|0.
+    default: 0
+  X_EXT:
+    datatype: int
+    paramtype: vlogparam
+    description: |
+      Enables CORE-V-XIF interface for the CV32E40X and CV32E40PX cores. Admitted values: 1|0.
     default: 0
   USE_EXTERNAL_DEVICE_EXAMPLE:
-    datatype: bool
-    paramtype: vlogdefine
-    default: false
+    datatype: int
+    paramtype: vlogparam
+    description: |
+      Enables testbench modules compilation. Admitted values: 1|0.
+    default: 1
   USE_UPF:
     datatype: bool
     paramtype: vlogdefine
-    default: false
+    description: |
+      Enables simulation with UPF with Modelsim/VCS
+  REMOVE_OBI_FIFO:
+    datatype: bool
+    paramtype: vlogdefine
+    description: |
+      Remove the FIFO between the BUS and the peripherals subsystems
   SYNTHESIS:
+    datatype: bool
+    paramtype: vlogdefine
+    default: false
+  VERILATOR: #used by SV2V
     datatype: bool
     paramtype: vlogdefine
     default: false
@@ -189,6 +221,7 @@ targets:
     filesets:
     - keccak_xif_vhdl
     - keccak_x_heep
+    - x_heep_system
     toplevel: [keccak_x_heep_top]
 
   sim:
@@ -252,6 +285,30 @@ targets:
           - '-CFLAGS "-std=c++11 -Wall -g -fpermissive"'
           - '-LDFLAGS "-pthread -lutil -lelf"'
           - "-Wall"
+
+  asic_synthesis:
+    <<: *default_target
+    default_tool: design_compiler
+    description: Design Compiler Script
+    parameters:
+    - PRIM_DEFAULT_IMPL=prim_pkg::your_target_technology
+    - COREV_PULP
+    - X_EXT
+    - FPU
+    - SYNTHESIS=true
+    - REMOVE_OBI_FIFO
+    filesets_append:
+    - ip-asic
+    toplevel: [keccak_x_heep_top]
+    tools:
+      design_compiler:
+        script_dir:
+        - ../../../scripts/synthesis/dc_shell
+        report_dir:
+        - report
+        dc_script:
+        - dc_script.tcl
+
   pynq-z2:
     <<: *default_target
     default_tool: vivado

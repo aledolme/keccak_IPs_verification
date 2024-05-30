@@ -6,15 +6,43 @@
 # Makefile to generates keccak-x-heep files and build the design with fusesoc
 
 MAKE                       = make
+ROOT_DIR			:= $(realpath .)
+BUILD_DIR			:= $(ROOT_DIR)/build
+LOG_DIR				:= $(BUILD_DIR)/logs
 
 # Get the absolute path
 mkfile_path := $(shell dirname "$(realpath $(firstword $(MAKEFILE_LIST)))")
 
 
-# Linker options are 'on_chip' (default),'flash_load','flash_exec','freertos'
-LINKER   ?= on_chip
 # Target options are 'sim' (default) and 'pynq-z2'
-TARGET   ?= sim
+TARGET   			?= sim
+
+# Linker options are 'on_chip' (default),'flash_load','flash_exec','freertos'
+LINKER   			?= on_chip
+
+# X-HEEP configuration
+XHEEP_DIR			:= $(ROOT_DIR)/hw/vendor/polito_vlsi_lab_athos_heep/hw/vendor/esl_epfl_x_heep
+ATHOS_DIR			:= $(ROOT_DIR)/hw/vendor/polito_vlsi_lab_athos_heep/hw/vendor/polito_vlsi_lab_athos
+MCU_CFG				?= $(ROOT_DIR)/config/mcu-gen.hjson
+PAD_CFG				?= $(ROOT_DIR)/config/heep-pads.hjson
+APP_DIR				:= $(ROOT_DIR)/sw/applications
+EXTERNAL_DOMAINS 	:= 1 # athos accelerator
+MCU_GEN_OPTS		:= \
+	MCU_CFG=$(MCU_CFG) \
+	PAD_CFG=$(PAD_CFG) \
+	EXTERNAL_DOMAINS=$(EXTERNAL_DOMAINS)
+MCU_GEN_LOCK		:= $(BUILD_DIR)/.mcu-gen.lock
+
+# RTL simulation configuration
+FIRMWARE 			?= $(ROOT_DIR)/sw/build/main.hex
+BYPASS_FLL			?= 1 # 0: use FLL, 1: bypass FLL
+FUSESOC_FLAGS		?=
+FUSESOC_ARGS		?=
+
+# Application-specific makefile
+APP_MAKE  			:= $(wildcard sw/applications/$(PROJECT)/*akefile)
+APP_MAKE_PARAMS		?=
+
 # Compiler options are 'gcc' (default) and 'clang'
 COMPILER ?= gcc
 # Compiler prefix options are 'riscv32-unknown-' (default)
@@ -50,6 +78,7 @@ esl_epfl_x_heep-sync:
 	rsync -a config/dma.h hw/vendor/esl_epfl_x_heep/sw/device/lib/drivers/dma/dma.h
 	rsync -a config/core_v_mini_mcu.sv hw/vendor/esl_epfl_x_heep/hw/system/x_heep_system.sv
 	rsync -a config/x_heep_system.sv hw/vendor/esl_epfl_x_heep/hw/core-v-mini-mcu/core_v_mini_mcu.sv
+	rsync -a config/cv32e40px_x_disp.sv hw/vendor/esl_epfl_x_heep/hw/vendor/esl_epfl_cv32e40px/rtl/cv32e40px_x_disp.sv
 
 mcu-gen:
 	$(MAKE) -f $(XHEEP_MAKE) $(MAKECMDGOALS) CPU=cv32e40px BUS=NtoM MEMORY_BANKS=12 EXTERNAL_DOMAINS=$(EXTERNAL_DOMAINS)
@@ -101,6 +130,11 @@ run-keccak-xif-questasim-gui: questasim-sim app-keccak-xif
 ## Builds (synthesis and implementation) the bitstream for the FPGA version using Vivado
 ## @param FPGA_BOARD=nexys-a7-100t,pynq-z2
 ## @param FUSESOC_FLAGS=--flag=<flagname>
+
+## @section Design Compiler
+asic:
+	$(FUSESOC) --cores-root . run --no-export --target=asic_synthesis $(FUSESOC_FLAGS) --setup vlsi:polito:mcu_keccak ${FUSESOC_PARAM} 2>&1 | tee builddesigncompiler.log
+
 vivado-keccak-fpga:
 	$(FUSESOC) --cores-root . run --no-export --target=$(FPGA_BOARD) $(FUSESOC_FLAGS) --setup --build vlsi:polito:mcu_keccak 2>&1 | tee buildvivado.log
 
