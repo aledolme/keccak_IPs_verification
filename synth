@@ -1,0 +1,4 @@
+set search_path [list ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/vendor/lowrisc_ip/dv/sv/dv_utils  ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/lowrisc_opentitan/hw/ip/prim/rtl ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_common_cells/include \
+    ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/pulp_platform_register_interface/include ../../../hw/vendor/esl_epfl_x_heep/hw/vendor/openhwgroup_cv32e20/rtl \
+    ../include /eda/synopsys/2021-22/RHELx86/SYN 2021.06-SP4/libraries/syn /software/dk/umc65/Core-lib_LL_Multi-Voltage_Reg.Vt/synopsys /software/dk/umc65/memories_LL/SHKA65_8192X32X1CM16 /software/dk/umc65/memories_LL/SHKA65_256X20X1CM4 \
+    /home/alessandra.dolmeta/ATHOS-PQC/SYNTH/athos_top/scripts/synthesis/lib  .]
