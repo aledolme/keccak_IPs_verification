@@ -102,7 +102,7 @@ verilator-sim:
 
 run-helloworld-questasim: questasim-sim app-helloworld
 	cd ./build/vlsi_polito_mcu_keccak_0/sim-modelsim; \
-	make run PLUSARGS="c firmware=../../../sw/x_heep_applications/hello_world/hello_world.hex"; \
+	make run-gui PLUSARGS="c firmware=../../../sw/x_heep_applications/hello_world/hello_world.hex"; \
 	cat uart0.log; \
 	cd ../../..;
 
